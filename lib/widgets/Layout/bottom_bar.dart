@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../../models/icons/icons.dart';
 
 class BottomBar extends StatelessWidget {
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
   static const IconData heart_empty_2 =
       IconData(0xe8ef, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -76,7 +78,8 @@ class BottomBar extends StatelessWidget {
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
                               child: Column(children: [
-                                Icon(heart_empty_2, color: Color(0xFF676E79)),
+                                // Icon(heart_empty_2, color: Color(0xFF676E79)),
+                                HeartIcon(),
                                 Container(
                                     padding: EdgeInsets.only(top: 5, bottom: 0),
                                     child: Text('Wishlist')),
