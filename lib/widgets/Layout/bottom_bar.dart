@@ -71,7 +71,7 @@ class BottomBar extends StatelessWidget {
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
                               child: Column(children: [
-                                Icon(Icons.lightbulb_sharp,
+                                Icon(Icons.view_headline_outlined,
                                     color: Color(0xFF676E79)),
                                 Container(
                                     padding: EdgeInsets.only(top: 5, bottom: 0),
