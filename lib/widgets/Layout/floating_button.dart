@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// icons
+import '../../models/icons/icons.dart';
+
 class FloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

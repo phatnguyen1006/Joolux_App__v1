@@ -24,8 +24,7 @@ class HomeTabBar extends StatelessWidget {
       labelPadding: EdgeInsets.only(right: 20, left: 20),
       unselectedLabelColor: Color(0xFFCDCDCD),
       tabs: _tabList.map((tab) {
-        return Flexible(
-          flex: 1,
+        return Container(
           child: Column(
             children: [
               Text(tab.image),

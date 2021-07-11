@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+// icon
+import '../../models/icons/icons.dart';
 
 class BottomBar extends StatelessWidget {
   @override
@@ -71,8 +74,7 @@ class BottomBar extends StatelessWidget {
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
                               child: Column(children: [
-                                Icon(Icons.view_headline_outlined,
-                                    color: Color(0xFF676E79)),
+                                Icon(MyIcon.heart, color: Color(0xFF676E79)),
                                 Container(
                                     padding: EdgeInsets.only(top: 5, bottom: 0),
                                     child: Text('Wishlist')),
