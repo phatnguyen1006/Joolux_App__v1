@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:joolux_demo/widgets/components/body.dart';
+
 // Widgets
 import './home_tab_bar.dart';
 import './cookie_page.dart';
@@ -29,7 +31,7 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
             width: double.infinity,
             child: TabBarView(controller: _tabController, children: [
               CookiePage(),
-              CookiePage(),
+              Body(),
               CookiePage(),
               CookiePage(),
             ]))

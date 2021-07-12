@@ -4,10 +4,10 @@ import '../../models/tabbar_interface.dart';
 
 class HomeTabBar extends StatelessWidget {
   final List<TabBarInterface> _tabList = [
-    TabBarInterface(image: 'Img1', title: 'Man'),
-    TabBarInterface(image: 'Img2', title: 'Women'),
-    TabBarInterface(image: 'Img3', title: 'Children'),
-    TabBarInterface(image: 'Img4', title: 'Trending'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'Discover'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'Women'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'Children'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'Trending'),
   ];
 
   final TabController _tabController;
@@ -27,7 +27,17 @@ class HomeTabBar extends StatelessWidget {
         return Container(
           child: Column(
             children: [
-              Text(tab.image),
+              Container(
+                width: 50,
+                height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    image:DecorationImage(
+                      image: AssetImage(tab.image)
+                    )
+                ),
+              ),
+              //Text(tab.image),
               Tab(
                 child: Text(tab.title,
                     style: TextStyle(

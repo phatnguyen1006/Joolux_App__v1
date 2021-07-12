@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'cookie_detail.dart';
 
+
 class CookiePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
