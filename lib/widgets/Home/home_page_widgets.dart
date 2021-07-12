@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import './tabs_screen/discovery_body.dart';
+
 
 // Widgets
 import './home_tab_bar.dart';

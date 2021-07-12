@@ -18,10 +18,10 @@ class _MyHomePageState extends State<MyHomePage>
       body: Container(
           // decoration: BoxDecoration(color: Colors.black),
           child: ListView(
-        padding: EdgeInsets.only(left: 20.0),
-        children: <Widget>[
-          HomePageWidgets(),
-        ],
+            padding: EdgeInsets.only(left: 20.0),
+            children: <Widget>[
+            HomePageWidgets(),
+          ],
       )),
       floatingActionButton: FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -29,3 +29,12 @@ class _MyHomePageState extends State<MyHomePage>
     );
   }
 }
+
+// body: Container(
+// // decoration: BoxDecoration(color: Colors.black),
+// child: ListView(
+// padding: EdgeInsets.only(left: 10.0, right: 0.0),
+// children: <Widget>[
+// HomePageWidgets(),
+// ],
+// )),
