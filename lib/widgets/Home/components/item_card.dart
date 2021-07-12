@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/models/icons/icons.dart';
-import 'package:joolux_demo/models/products/products.dart';
+import '/models/products/products.dart';
 
-import '../../constants.dart';
+import '../../../constants.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
@@ -31,7 +31,7 @@ class ItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding:const EdgeInsets.all(DefaultPadding/5),
+                  padding: const EdgeInsets.all(DefaultPadding / 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -56,29 +56,20 @@ class ItemCard extends StatelessWidget {
         const Text(
           "Chanel",
           textAlign: TextAlign.left,
-          style: TextStyle(
-              fontWeight: FontWeight.bold
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        const Text("Chanel Green Quilted Patent\nLeather Jumbo Classic Double Flag Bag"),
+        const Text(
+            "Chanel Green Quilted Patent\nLeather Jumbo Classic Double Flag Bag"),
         Text("Est. Retail\$${product.price}"),
         const Text(
           "\$4.503 40% off",
-          style: TextStyle(
-              decoration: TextDecoration.lineThrough
-          ),
+          style: TextStyle(decoration: TextDecoration.lineThrough),
         ),
         const Text(
           "\$3.003 EXTRA 33% off",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.red
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
         ),
-        Container(
-            width: size.width/2,
-            height: 0.3,
-            color:Colors.black),
+        Container(width: size.width / 2, height: 0.3, color: Colors.black),
       ],
     );
   }
