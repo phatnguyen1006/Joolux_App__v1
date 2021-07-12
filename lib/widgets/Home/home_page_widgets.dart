@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:joolux_demo/widgets/components/body.dart';
+import 'tabs_screen/discovery_body.dart';
 
 // Widgets
 import './home_tab_bar.dart';
-import './cookie_page.dart';
+import 'components/cookie_page.dart';
 
 class HomePageWidgets extends StatefulWidget {
   @override
