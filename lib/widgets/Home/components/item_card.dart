@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/models/icons/icons.dart';
-import '/models/products/products.dart';
+import '../../../models/products/products.dart';
 
 import '../../../constants.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
   final Function press;
-  const ItemCard({
-    Key? key,
-    required this.product,
-    required this.press
-  }) : super(key: key);
+  const ItemCard({Key? key, required this.product, required this.press})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
