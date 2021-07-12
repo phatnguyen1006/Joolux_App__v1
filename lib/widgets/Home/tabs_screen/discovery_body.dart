@@ -6,7 +6,7 @@ import '../../../models/products/products.dart';
 
 import '../../../models/icons/icons.dart';
 import '../components/item_card.dart';
-import '../../details/details_screen.dart';
+import '../../product_details_screen/details_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
