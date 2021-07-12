@@ -17,7 +17,7 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 8, vsync: this);
   }
 
   @override
@@ -31,6 +31,10 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
             width: double.infinity,
             child: TabBarView(controller: _tabController, children: [
               DiscoveryBody(),
+              CookiePage(),
+              CookiePage(),
+              CookiePage(),
+              CookiePage(),
               CookiePage(),
               CookiePage(),
               CookiePage(),

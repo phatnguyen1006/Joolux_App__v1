@@ -4,10 +4,14 @@ import '../../models/tabbar_interface.dart';
 
 class HomeTabBar extends StatelessWidget {
   final List<TabBarInterface> _tabList = [
-    TabBarInterface(image: "assets/discover.jpg", title: 'Discover'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'Women'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'Children'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'Trending'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'DISCOVER'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'WOMEN'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'MEN'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'NEW ARRIVALS'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'SALE'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'WATCHES'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'DESIGNERS'),
+    TabBarInterface(image: "assets/discover.jpg", title: 'HOME'),
   ];
 
   final TabController _tabController;
@@ -20,46 +24,46 @@ class HomeTabBar extends StatelessWidget {
       controller: _tabController,
       indicatorColor: Colors.transparent,
       labelColor: Colors.black,
+      indicator: BoxDecoration(
+          border: Border(bottom: BorderSide(width: 4, color: Colors.black))),
       isScrollable: true,
-      labelPadding: EdgeInsets.only(right: 20, left: 20),
+      labelPadding: EdgeInsets.only(right: 10, left: 10, bottom: 0, top: 0),
       unselectedLabelColor: Color(0xFFCDCDCD),
       tabs: _tabList.map((tab) {
         return Container(
+          padding: EdgeInsets.all(0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 50,
-                height: 50,
-                  decoration: BoxDecoration(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
-                    image:DecorationImage(
-                      image: AssetImage(tab.image)
-                    )
-                ),
+                    image: DecorationImage(image: AssetImage(tab.image))),
               ),
-              //Text(tab.image),
-              Tab(
+              Container(
+                height: 30,
+                padding: EdgeInsets.only(top: 10),
                 child: Text(tab.title,
                     style: TextStyle(
+                      // backgroundColor: Colors.red,
                       fontFamily: 'Varela',
-                      fontSize: 21.0,
+                      fontSize: 13.0,
                     )),
-              )
+              ),
+              // Tab(
+              //   child: Text(tab.title,
+              //       style: TextStyle(
+              //         // backgroundColor: Colors.red,
+              //         fontFamily: 'Varela',
+              //         fontSize: 13.0,
+              //       )),
+              // )
             ],
           ),
         );
       }).toList(),
-      // Container(
-      //     child: Column(children: [
-      //   Text('Img'),
-      //   Tab(
-      //     child: Text('Cookies',
-      //         style: TextStyle(
-      //           fontFamily: 'Varela',
-      //           fontSize: 21.0,
-      //         )),
-      //   )
-      // ])),
     );
   }
 }
