@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './tabs_screen/discovery_body.dart';
 
-
 // Widgets
 import './home_tab_bar.dart';
 import 'components/cookie_page.dart';
@@ -26,7 +25,7 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 15.0),
+        SizedBox(height: 5.0),
         HomeTabBar(_tabController),
         Container(
             height: MediaQuery.of(context).size.height - 50.0,

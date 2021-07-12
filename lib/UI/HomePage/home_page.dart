@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// widgets
 import '../../widgets/Layout/bottom_bar.dart';
 import '../../widgets/Home/home_page_widgets.dart';
 import '../../widgets/Layout/floating_button.dart';
@@ -18,10 +19,10 @@ class _MyHomePageState extends State<MyHomePage>
       body: Container(
           // decoration: BoxDecoration(color: Colors.black),
           child: ListView(
-            padding: EdgeInsets.only(left: 20.0),
-            children: <Widget>[
-            HomePageWidgets(),
-          ],
+        padding: EdgeInsets.only(left: 20.0),
+        children: <Widget>[
+          HomePageWidgets(),
+        ],
       )),
       floatingActionButton: FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -29,12 +30,3 @@ class _MyHomePageState extends State<MyHomePage>
     );
   }
 }
-
-// body: Container(
-// // decoration: BoxDecoration(color: Colors.black),
-// child: ListView(
-// padding: EdgeInsets.only(left: 10.0, right: 0.0),
-// children: <Widget>[
-// HomePageWidgets(),
-// ],
-// )),

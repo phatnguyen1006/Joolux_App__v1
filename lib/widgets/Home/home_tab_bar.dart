@@ -36,20 +36,20 @@ class HomeTabBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 45,
-                height: 45,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                     image: DecorationImage(image: AssetImage(tab.image))),
               ),
               Container(
-                height: 30,
-                padding: EdgeInsets.only(top: 10),
+                height: 25,
+                padding: EdgeInsets.only(top: 8),
                 child: Text(tab.title,
                     style: TextStyle(
                       // backgroundColor: Colors.red,
                       fontFamily: 'Varela',
-                      fontSize: 13.0,
+                      fontSize: 12.0,
                     )),
               ),
               // Tab(
