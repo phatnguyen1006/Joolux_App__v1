@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'tabs_screen/discovery_body.dart';
+
+import './tabs_screen/discovery_body.dart';
+
 
 // Widgets
 import './home_tab_bar.dart';
@@ -30,8 +32,8 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
             height: MediaQuery.of(context).size.height - 50.0,
             width: double.infinity,
             child: TabBarView(controller: _tabController, children: [
+              DiscoveryBody(),
               CookiePage(),
-              Body(),
               CookiePage(),
               CookiePage(),
             ]))

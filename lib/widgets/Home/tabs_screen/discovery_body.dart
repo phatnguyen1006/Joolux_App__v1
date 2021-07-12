@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+
 import "package:joolux_demo/constants.dart";
 import '../../../models/products/products.dart';
 
@@ -8,8 +9,12 @@ import '../../../models/icons/icons.dart';
 import '../components/item_card.dart';
 import '../../product_details_screen/details_screen.dart';
 
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+import "../../../constants.dart";
+
+
+
+class DiscoveryBody extends StatelessWidget {
+  const DiscoveryBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
