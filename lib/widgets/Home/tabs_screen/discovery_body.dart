@@ -37,6 +37,8 @@ class DiscoveryBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
             child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+
                 itemCount: products.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -71,7 +73,51 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                height: 75,
+                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
+                width: size.width,
+                color: Color(0xFFECEFF1),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Icon(MyIcon.heart),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Unique Luxury Pieces",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: const Text(
+                                "Extensive luxury collection where each item is unique & high on fashionExtensive luxury collection where each item is unique & high on fashion",
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
+              child: Container(
+                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
@@ -115,7 +161,7 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                height: 75,
+                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
@@ -159,51 +205,7 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                height: 75,
-                width: size.width,
-                color: Color(0xFFECEFF1),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Icon(MyIcon.heart),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Unique Luxury Pieces",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 4.0),
-                              child: const Text(
-                                "Extensive luxury collection where each item is unique & high on fashion",
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
-              child: Container(
-                height: 75,
+                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
