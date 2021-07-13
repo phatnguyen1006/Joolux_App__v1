@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 // icon
 import '../../models/icons/icons.dart';
 
 class BottomBar extends StatelessWidget {
+  final int currentPage;
+  final Function setPage;
+
+  BottomBar({required this.currentPage, required this.setPage});
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
         // shape: CircularNotchedRectangle(),
         notchMargin: 6.0,
-        color: Colors.transparent,
+        color: Colors.white,
         elevation: 9.0,
         clipBehavior: Clip.antiAlias,
         child: Container(
@@ -26,24 +32,41 @@ class BottomBar extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Container(
-                              height: double.infinity,
-                              padding: EdgeInsets.only(top: 10, bottom: 5),
+                            height: double.infinity,
+                            padding: EdgeInsets.only(top: 10, bottom: 5),
+                            child: InkWell(
+                              onTap: () {
+                                setPage(0);
+                              },
                               child: Column(children: [
-                                Icon(Icons.home, color: Colors.black),
+                                Icon(Icons.home,
+                                    color: currentPage == 0
+                                        ? Colors.black
+                                        : Colors.grey[400]),
                                 Container(
                                     padding: EdgeInsets.only(top: 5, bottom: 0),
                                     child: Text('Home')),
-                              ])),
+                              ]),
+                            ),
+                          ),
                           Container(
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
-                              child: Column(children: [
-                                Icon(Icons.person_outline,
-                                    color: Color(0xFF676E79)),
-                                Container(
-                                    padding: EdgeInsets.only(top: 5, bottom: 0),
-                                    child: Text('Categories')),
-                              ])),
+                              child: InkWell(
+                                onTap: () {
+                                  setPage(1);
+                                },
+                                child: Column(children: [
+                                  Icon(Icons.person_outline,
+                                      color: currentPage == 1
+                                          ? Colors.black
+                                          : Colors.grey[400]),
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 5, bottom: 0),
+                                      child: Text('Categories')),
+                                ]),
+                              )),
                         ],
                       )),
                   Container(
@@ -63,22 +86,39 @@ class BottomBar extends StatelessWidget {
                           Container(
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
-                              child: Column(children: [
-                                Icon(Icons.fireplace_rounded,
-                                    color: Color(0xFF676E79)),
-                                Container(
-                                    padding: EdgeInsets.only(top: 5, bottom: 0),
-                                    child: Text('Designer')),
-                              ])),
+                              child: InkWell(
+                                onTap: () {
+                                  setPage(2);
+                                },
+                                child: Column(children: [
+                                  Icon(Icons.fireplace_rounded,
+                                      color: currentPage == 2
+                                          ? Colors.black
+                                          : Colors.grey[400]),
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 5, bottom: 0),
+                                      child: Text('Designer')),
+                                ]),
+                              )),
                           Container(
                               height: double.infinity,
                               padding: EdgeInsets.only(top: 10, bottom: 5),
-                              child: Column(children: [
-                                Icon(MyIcon.heart, color: Color(0xFF676E79)),
-                                Container(
-                                    padding: EdgeInsets.only(top: 5, bottom: 0),
-                                    child: Text('Wishlist')),
-                              ])),
+                              child: InkWell(
+                                onTap: () {
+                                  setPage(3);
+                                },
+                                child: Column(children: [
+                                  Icon(MyIcon.heart,
+                                      color: currentPage == 3
+                                          ? Colors.black
+                                          : Colors.grey[400]),
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(top: 5, bottom: 0),
+                                      child: Text('Wishlist')),
+                                ]),
+                              )),
                         ],
                       )),
                 ])));

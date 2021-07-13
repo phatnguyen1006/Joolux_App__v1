@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../Layout/bottom_bar.dart';
 
 class CookieDetail extends StatelessWidget {
   final assetPath, cookieprice, cookiename;
@@ -100,7 +99,6 @@ class CookieDetail extends StatelessWidget {
         child: Icon(Icons.fastfood),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(),
     );
   }
 }
