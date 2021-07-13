@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
 import '../../../product_details_page/details_page.dart';
+import '../../../Layout/app_pop_bar.dart';
+import '../cookie_page.dart';
 
 class Posters extends StatelessWidget {
   // final Poster poster;
@@ -11,7 +13,14 @@ class Posters extends StatelessWidget {
       child: Column(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Scaffold(
+                    appBar: appPopBar(context),
+                    body: CookiePage(),
+                  ),
+                )),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
               child: GridView.builder(
