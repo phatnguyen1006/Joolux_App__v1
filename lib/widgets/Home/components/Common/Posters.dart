@@ -1,32 +1,49 @@
 import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
+import '../../../product_details_page/details_page.dart';
 
 class Posters extends StatelessWidget {
-  final Poster poster;
-  final Function press;
-  const Posters({Key? key, required this.poster, required this.press})
-      : super(key: key);
+  // final Poster poster;
+  // const Posters({Key? key, required this.poster}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => press(),
+    return Container(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-                child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(0),
-                  child: Image.asset(poster.image),
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: posters.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 1,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 1.9,
                 ),
-              ],
-            )),
+                itemBuilder: (context, index) => posterIndex(index),
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget posterIndex(index) {
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            child: Padding(
+              padding: const EdgeInsets.all(0),
+              child: Image.asset(posters[index].image),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
