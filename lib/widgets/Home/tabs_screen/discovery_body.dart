@@ -7,11 +7,12 @@ import '../../../models/products/products.dart';
 
 import '../../../models/icons/icons.dart';
 import '../components/Common/item_card.dart';
+import '../components/Common/image_card.dart';
+import '../components/Common/Posters.dart';
 import '../../product_details_page/details_page.dart';
+import '../components/Others/for_people.dart';
 
 import "../../../constants.dart";
-
-
 
 class DiscoveryBody extends StatelessWidget {
   const DiscoveryBody({Key? key}) : super(key: key);
@@ -23,6 +24,58 @@ class DiscoveryBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
+          child: GridView.builder(
+              shrinkWrap: true,
+              //primary: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: products.length - 4,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: DefaultPadding,
+                crossAxisSpacing: 10,
+                childAspectRatio: 0.9,
+              ),
+              itemBuilder: (context, index) => ImageCard(
+                  product: products[index],
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      )))),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0),
+          child: GridView.builder(
+              shrinkWrap: true,
+              //primary: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: posters.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisSpacing: 10,
+                childAspectRatio: 1.9,
+              ),
+              itemBuilder: (context, index) => Posters(
+                  poster: posters[index],
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      )))),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ForPeople(typePeople: 'MEN'),
+        ForPeople(typePeople: "WOMEN"),
+        SizedBox(
+          height: 20,
+        ),
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding / 2),
           child: SizedBox(
@@ -73,7 +126,8 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
+                constraints: const BoxConstraints(
+                    minHeight: 0.0, maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
@@ -117,7 +171,8 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
+                constraints: const BoxConstraints(
+                    minHeight: 0.0, maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
@@ -161,7 +216,8 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
+                constraints: const BoxConstraints(
+                    minHeight: 0.0, maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(
@@ -205,7 +261,8 @@ class DiscoveryBody extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 8, right: 8, bottom: 4),
               child: Container(
-                constraints: const BoxConstraints(minHeight: 0.0,maxHeight: double.infinity),
+                constraints: const BoxConstraints(
+                    minHeight: 0.0, maxHeight: double.infinity),
                 width: size.width,
                 color: Color(0xFFECEFF1),
                 child: Row(

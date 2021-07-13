@@ -1,5 +1,24 @@
 import 'package:flutter/material.dart';
 
+class Poster {
+  final String image;
+  Poster({
+    required this.image,
+  });
+}
+
+List<Poster> posters = [
+  Poster(
+    image: "assets/Advertisement.jpg",
+  ),
+  Poster(
+    image: "assets/Advertisement.jpg",
+  ),
+  Poster(
+    image: "assets/Advertisement.jpg",
+  )
+];
+
 class Product {
   final String image, title, description;
   final int price, size, id;
