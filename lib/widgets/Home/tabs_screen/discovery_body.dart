@@ -6,7 +6,7 @@ import "package:joolux_demo/constants.dart";
 import '../../../models/products/products.dart';
 
 import '../../../models/icons/icons.dart';
-import '../components/item_card.dart';
+import '../components/Common/item_card.dart';
 import '../../product_details_page/details_page.dart';
 
 import "../../../constants.dart";
