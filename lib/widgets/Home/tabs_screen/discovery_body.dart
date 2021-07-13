@@ -24,8 +24,6 @@ class DiscoveryBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        ForPeople(typePeople: 'MEN'),
-        ForPeople(typePeople: "WOMEN"),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
           child: GridView.builder(
@@ -70,6 +68,11 @@ class DiscoveryBody extends StatelessWidget {
                         builder: (context) => DetailsScreen(),
                       )))),
         ),
+        SizedBox(
+          height: 20,
+        ),
+        ForPeople(typePeople: 'MEN'),
+        ForPeople(typePeople: "WOMEN"),
         SizedBox(
           height: 20,
         ),
