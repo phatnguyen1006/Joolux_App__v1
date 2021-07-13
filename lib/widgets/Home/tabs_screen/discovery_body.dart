@@ -19,8 +19,9 @@ class DiscoveryBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding / 2),
@@ -33,33 +34,32 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
-            child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-
-                itemCount: products.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: DefaultPadding,
-                  crossAxisSpacing: DefaultPadding,
-                  childAspectRatio: 0.45,
-                ),
-                itemBuilder: (context, index) => ItemCard(
-                    product: products[index],
-                    press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsScreen(),
-                        )))),
-          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
+          child: GridView.builder(
+              shrinkWrap: true,
+              //primary: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: DefaultPadding,
+                crossAxisSpacing: DefaultPadding,
+                childAspectRatio: 0.45,
+              ),
+              itemBuilder: (context, index) => ItemCard(
+                  product: products[index],
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      )))),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: DefaultPadding / 2),
+          padding: const EdgeInsets.only(top: DefaultPadding),
           child: SizedBox(
             width: size.width,
-            height: size.height * 0.05,
+            height: size.height * 0.03,
             child: const Text(
               "You Can Always Count On Us",
               textAlign: TextAlign.center,

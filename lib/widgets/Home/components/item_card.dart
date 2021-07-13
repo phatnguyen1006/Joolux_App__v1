@@ -68,7 +68,10 @@ class ItemCard extends StatelessWidget {
             "\$3.003 EXTRA 33% off",
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
           ),
-          Container(width: size.width / 2, height: 0.3, color: Colors.black),
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: Container(width: size.width / 2, height: 0.3, color: Colors.black),
+          ),
         ],
       ),
     );

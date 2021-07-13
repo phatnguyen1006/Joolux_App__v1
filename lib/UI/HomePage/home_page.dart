@@ -16,17 +16,19 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header(),
-      body: Container(
-          // decoration: BoxDecoration(color: Colors.black),
-          child: ListView(
-        padding: EdgeInsets.only(left: 20.0),
-        children: <Widget>[
-          HomePageWidgets(),
-        ],
-      )),
+      body: HomePageWidgets(),
       floatingActionButton: FloatingButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomBar(),
     );
   }
 }
+// Container(
+// // decoration: BoxDecoration(color: Colors.black),
+// child: ListView(
+// //shrinkWrap: true,
+// padding: EdgeInsets.only(left: 20.0),
+// children: <Widget>[
+// HomePageWidgets(),
+// ],
+//)),
