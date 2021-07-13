@@ -6,9 +6,32 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appPopBar(context),
-      body: Container(),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        children: [
+          Container(
+            width: size.width,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+            ),
+          ),
+          ExpansionPanelList(
+            children: [
+              ExpansionPanel(
+                  headerBuilder: (context, isOpen) {
+                    return Text("Hello");
+                  },
+                  body: Text("Now Open!"),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
