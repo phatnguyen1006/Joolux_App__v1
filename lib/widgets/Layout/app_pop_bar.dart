@@ -3,40 +3,31 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 
-
 AppBar appPopBar(BuildContext context) {
   return AppBar(
-    backgroundColor: Colors.blueGrey,
+    backgroundColor: Colors.white,
     elevation: 0,
     leading: IconButton(
       icon: SvgPicture.asset(
         "assets/icons/back.svg",
-        color: Colors.white,
+        color: Color(0xFF545D68),
       ),
       onPressed: () => Navigator.pop(context),
     ),
     actions: [
       IconButton(
-        icon: SvgPicture.asset(
-            "assets/icons/search.svg",
-            width: 20,
-            height: 20,
-        ),
-        onPressed: () {
-
-        },
+        icon: SvgPicture.asset("assets/icons/search.svg",
+            color: Color(0xFF545D68)),
+        onPressed: () {},
       ),
       IconButton(
-        icon: SvgPicture.asset(
-            "assets/icons/cart.svg",
-            width: 20,
-            height: 20,
-        ),
-        onPressed: () {
-
-        },
+        icon:
+            SvgPicture.asset("assets/icons/cart.svg", color: Color(0xFF545D68)),
+        onPressed: () {},
       ),
-      const SizedBox(width: DefaultPadding/2,)
+      const SizedBox(
+        width: DefaultPadding / 2,
+      )
     ],
   );
 }
