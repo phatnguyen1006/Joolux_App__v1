@@ -100,7 +100,6 @@ class CookieDetail extends StatelessWidget {
         child: Icon(Icons.fastfood),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomBar(),
     );
   }
 }
