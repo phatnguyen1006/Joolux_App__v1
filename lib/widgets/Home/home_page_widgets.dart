@@ -27,19 +27,21 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
       children: <Widget>[
         SizedBox(height: 5.0),
         HomeTabBar(_tabController),
-        Container(
-            height: MediaQuery.of(context).size.height - 50.0,
-            width: double.infinity,
-            child: TabBarView(controller: _tabController, children: [
-              DiscoveryBody(),
-              CookiePage(),
-              CookiePage(),
-              CookiePage(),
-              CookiePage(),
-              CookiePage(),
-              CookiePage(),
-              CookiePage(),
-            ]))
+        Expanded(
+          child: Container(
+              height: MediaQuery.of(context).size.height - 50.0,
+              width: double.infinity,
+              child: TabBarView(controller: _tabController, children: [
+                DiscoveryBody(),
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+                CookiePage(),
+              ])),
+        )
       ],
     );
   }

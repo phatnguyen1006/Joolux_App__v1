@@ -15,7 +15,9 @@ class CookiePage extends StatelessWidget {
               height: MediaQuery.of(context).size.height - 50.0,
               child: GridView.count(
                 crossAxisCount: 2,
-                primary: false,
+                // shrinkWrap: true,
+                // primary: true,
+                physics: new NeverScrollableScrollPhysics(),
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
@@ -27,7 +29,15 @@ class CookiePage extends StatelessWidget {
                   _buildCard('Cookie classic', '\$1.99',
                       'assets/cookieclassic.jpg', false, true, context),
                   _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
-                      false, false, context)
+                      false, false, context),
+                  _buildCard('Cookie mint', '\$3.99', 'assets/cookiemint.jpg',
+                      false, false, context),
+                  _buildCard('Cookie cream', '\$5.99', 'assets/cookiecream.jpg',
+                      true, false, context),
+                  _buildCard('Cookie classic', '\$1.99',
+                      'assets/cookieclassic.jpg', false, true, context),
+                  _buildCard('Cookie choco', '\$2.99', 'assets/cookiechoco.jpg',
+                      false, false, context),
                 ],
               )),
           SizedBox(height: 15.0)
