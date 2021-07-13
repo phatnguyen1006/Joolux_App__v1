@@ -8,7 +8,7 @@ import '../../../models/products/products.dart';
 import '../../../models/icons/icons.dart';
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
-import '../components/Common/Posters.dart';
+import '../components/Common/posters.dart';
 import '../../product_details_page/details_page.dart';
 import '../components/Others/for_people.dart';
 
@@ -24,6 +24,9 @@ class DiscoveryBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
+        SizedBox(
+          height: 10,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
           child: GridView.builder(
