@@ -134,7 +134,7 @@ class _PageIndicatorState extends State<PageIndicator> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 10),
       width: 6,
       height: 6,
       decoration: BoxDecoration(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
 
-import '../../../../constants.dart';
-
 class ImageCard extends StatelessWidget {
   final Product product;
   final Function press;
