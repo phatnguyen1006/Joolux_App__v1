@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-// routes
-import '../../UI/Home/home_page.dart';
-import '../../UI/Categories/categories_page.dart';
-import '../../UI/Designer/designer_page.dart';
-import '../../UI/User/wishlist_page.dart';
 
 // icon
 import '../../models/icons/icons.dart';
