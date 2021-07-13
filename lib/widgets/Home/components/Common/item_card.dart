@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/models/icons/icons.dart';
-import '../../../models/products/products.dart';
+import '../../../../models/products/products.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
