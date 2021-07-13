@@ -3,6 +3,31 @@ import 'package:joolux_demo/models/icons/icons.dart';
 import '../../../../models/products/products.dart';
 
 import '../../../../constants.dart';
+import '../../../product_details_page/details_page.dart';
+
+Padding itemGridView() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
+    child: GridView.builder(
+        shrinkWrap: true,
+        //primary: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: products.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: DefaultPadding,
+          crossAxisSpacing: DefaultPadding,
+          childAspectRatio: 0.45,
+        ),
+        itemBuilder: (context, index) => ItemCard(
+            product: products[index],
+            press: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                )))),
+  );
+}
 
 class ItemCard extends StatelessWidget {
   final Product product;

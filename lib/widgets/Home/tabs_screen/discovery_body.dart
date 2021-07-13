@@ -72,29 +72,10 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
-          child: GridView.builder(
-              shrinkWrap: true,
-              //primary: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: products.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: DefaultPadding,
-                crossAxisSpacing: DefaultPadding,
-                childAspectRatio: 0.45,
-              ),
-              itemBuilder: (context, index) => ItemCard(
-                  product: products[index],
-                  press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailsScreen(),
-                      )))),
-        ),
+        itemGridView(),
         Footer(size: size),
       ],
     );
   }
+
 }

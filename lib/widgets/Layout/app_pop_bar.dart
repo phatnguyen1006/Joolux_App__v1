@@ -17,20 +17,26 @@ AppBar appPopBar(BuildContext context) {
     ),
     actions: [
       IconButton(
-        iconSize: 0,
-        icon: SvgPicture.asset("assets/icons/search.svg"),
+        icon: SvgPicture.asset(
+            "assets/icons/search.svg",
+            width: 20,
+            height: 20,
+        ),
         onPressed: () {
 
         },
       ),
       IconButton(
-        iconSize: 0,
-        icon: SvgPicture.asset("assets/icons/cart.svg"),
+        icon: SvgPicture.asset(
+            "assets/icons/cart.svg",
+            width: 20,
+            height: 20,
+        ),
         onPressed: () {
 
         },
       ),
-      const SizedBox(width: DefaultPadding / 2,)
+      const SizedBox(width: DefaultPadding/2,)
     ],
   );
 }
