@@ -10,6 +10,7 @@ import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
 import '../components/Common/Posters.dart';
 import '../../product_details_page/details_page.dart';
+import '../components/Others/for_people.dart';
 
 import "../../../constants.dart";
 
@@ -23,6 +24,8 @@ class DiscoveryBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
+        ForPeople(typePeople: 'MEN'),
+        ForPeople(typePeople: "WOMEN"),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
           child: GridView.builder(
