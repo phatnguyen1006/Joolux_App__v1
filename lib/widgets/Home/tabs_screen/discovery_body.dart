@@ -7,7 +7,7 @@ import '../../../models/products/products.dart';
 
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
-import '../components/Common/Posters.dart';
+import '../components/Common/posters.dart';
 import '../components/Common/swiper.dart';
 import '../../product_details_page/details_page.dart';
 import '../components/Others/for_people.dart';
