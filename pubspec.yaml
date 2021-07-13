@@ -32,6 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_svg: ^0.22.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -46,6 +47,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/icons/
     # - images/a_dot_burr.jpeg
     # - images/a_dot_ham.jpeg
 
