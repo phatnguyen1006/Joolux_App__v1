@@ -5,7 +5,7 @@ import '../../../../models/products/products.dart';
 import '../../../../constants.dart';
 import '../../../product_details_page/details_page.dart';
 
-Padding itemGridView() {
+Padding ProductGridView() {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
     child: GridView.builder(
@@ -95,7 +95,8 @@ class ItemCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 4.0),
-            child: Container(width: size.width / 2, height: 0.3, color: Colors.black),
+            child: Container(
+                width: size.width / 2, height: 0.3, color: Colors.black),
           ),
         ],
       ),
