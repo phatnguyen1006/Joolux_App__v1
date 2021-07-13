@@ -9,6 +9,7 @@ import '../../../models/icons/icons.dart';
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
 import '../components/Common/Posters.dart';
+import '../components/Common/swiper.dart';
 import '../../product_details_page/details_page.dart';
 import '../components/Others/for_people.dart';
 
@@ -24,6 +25,10 @@ class DiscoveryBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
+        Swipers(),
+        SizedBox(
+          height: 20,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
           child: GridView.builder(
@@ -48,26 +53,7 @@ class DiscoveryBody extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0),
-          child: GridView.builder(
-              shrinkWrap: true,
-              //primary: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: posters.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                mainAxisSpacing: 10,
-                childAspectRatio: 1.9,
-              ),
-              itemBuilder: (context, index) => Posters(
-                  poster: posters[index],
-                  press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailsScreen(),
-                      )))),
-        ),
+        Posters(),
         SizedBox(
           height: 20,
         ),

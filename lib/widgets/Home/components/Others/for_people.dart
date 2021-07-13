@@ -4,7 +4,6 @@ import '../../../../constants.dart';
 import '../cookie_page.dart';
 
 class ForPeople extends StatelessWidget {
-
   final String typePeople;
   const ForPeople({Key? key, required this.typePeople}) : super(key: key);
 
@@ -31,32 +30,31 @@ class ForPeople extends StatelessWidget {
                       color: Colors.blueGrey,
                     ),
                   ),
-                )
-            ),
+                )),
           ),
           GestureDetector(
-              onTap: () { print("Women page");},
+              onTap: () {
+                print("Clicked");
+              },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 4,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: DefaultPadding/2,
-                        crossAxisSpacing: DefaultPadding/2,
-                        childAspectRatio: 1,
-                      ),
-                      itemBuilder: (context, index) => peopleItem()
-                    ),
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 4,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: DefaultPadding / 2,
+                          crossAxisSpacing: DefaultPadding / 2,
+                          childAspectRatio: 1,
+                        ),
+                        itemBuilder: (context, index) => peopleItem()),
                   ],
                 ),
-              )
-          ),
+              )),
         ],
       ),
     );
@@ -71,11 +69,10 @@ class ForPeople extends StatelessWidget {
               color: Colors.blueGrey,
             ),
             child: Center(
-              child:
-                Padding(
-                  padding: const EdgeInsets.all(DefaultPadding),
-                  child: Image.asset("assets/images/bag_1.png"),
-                ),
+              child: Padding(
+                padding: const EdgeInsets.all(DefaultPadding),
+                child: Image.asset("assets/images/bag_1.png"),
+              ),
             ),
           ),
         ),
