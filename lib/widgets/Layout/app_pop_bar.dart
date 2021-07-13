@@ -17,12 +17,14 @@ AppBar appPopBar(BuildContext context) {
     ),
     actions: [
       IconButton(
+        iconSize: 0,
         icon: SvgPicture.asset("assets/icons/search.svg"),
         onPressed: () {
 
         },
       ),
       IconButton(
+        iconSize: 0,
         icon: SvgPicture.asset("assets/icons/cart.svg"),
         onPressed: () {
 
