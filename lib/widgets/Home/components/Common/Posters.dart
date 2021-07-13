@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../models/products/products.dart';
+import '../../../../models/products/poster.dart';
 import '../../../product_details_page/details_page.dart';
 import '../../../Layout/app_pop_bar.dart';
 import '../cookie_page.dart';

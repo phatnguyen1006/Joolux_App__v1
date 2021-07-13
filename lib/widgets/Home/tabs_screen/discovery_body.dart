@@ -4,6 +4,7 @@ import 'package:flutter/painting.dart';
 
 import '../components/Common/footer.dart';
 import '../../../models/products/products.dart';
+import '../../../models/products/poster.dart';
 
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';

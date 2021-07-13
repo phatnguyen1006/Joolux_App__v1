@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/constants.dart';
-import '../../../../models/products/products.dart';
+import '../../../../models/products/poster.dart';
 
 class Swipers extends StatefulWidget {
   const Swipers({
