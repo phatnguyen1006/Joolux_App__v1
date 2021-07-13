@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../Layout/app_pop_bar.dart';
 
 import '../../../../constants.dart';
 import '../cookie_page.dart';
@@ -20,7 +21,10 @@ class ForPeople extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CookiePage(),
+                      builder: (context) => Scaffold(
+                          appBar: appPopBar(context),
+                          body: CookiePage(),
+                    ),
                     )),
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
