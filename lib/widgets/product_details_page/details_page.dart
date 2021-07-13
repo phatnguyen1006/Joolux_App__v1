@@ -35,7 +35,7 @@ class ExpandingItems extends StatefulWidget {
 }
 
 class _ExpandingItemsState extends State<ExpandingItems> {
-  List<bool> _isExpanded = List.generate(10, (_) => false);
+  List<bool> _isExpanded = List.generate(5, (_) => false);
 
   @override
   Widget build(BuildContext context) {
