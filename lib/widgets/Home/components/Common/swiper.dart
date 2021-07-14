@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/constants.dart';
-import '../../../../models/products/products.dart';
+import '../../../../models/products/poster.dart';
 
 class Swipers extends StatefulWidget {
   const Swipers({
@@ -13,6 +13,7 @@ class Swipers extends StatefulWidget {
 
 class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  late String _title;
 
   final List<Widget> _sliders = List.generate(
     posters.length,
@@ -29,12 +30,20 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: posters.length);
+    _title = posters.elementAt(0).title;
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  @override
+  void _setTitle(int index) {
+    setState(() {
+      _title = posters.elementAt(index).title;
+    });
   }
 
   @override
@@ -49,8 +58,8 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
           fit: StackFit.expand,
           children: [
             TabBarView(
-              children: _sliders,
               controller: _tabController,
+              children: _sliders,
             ),
             Positioned(
               top: 200,
@@ -64,7 +73,7 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
                       height: 10,
                     ),
                     Text(
-                      posters[0].title,
+                      _title,
                       style: TextStyle(color: Colors.black),
                     ),
                     SizedBox(
@@ -83,6 +92,7 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
                               child: PageIndicator(
                                 index: index,
                                 controller: _tabController,
+                                setTitle: _setTitle,
                               ),
                             );
                           }),
@@ -105,10 +115,13 @@ class PageIndicator extends StatefulWidget {
   final int index;
 
   final TabController controller;
+  final Function setTitle;
+
   const PageIndicator({
     Key? key,
     required this.index,
     required this.controller,
+    required this.setTitle,
   }) : super(key: key);
 
   @override
@@ -125,6 +138,7 @@ class _PageIndicatorState extends State<PageIndicator> {
 
     // add listener to tabcontroller to update page indicator size
     widget.controller.addListener(() {
+      widget.setTitle(widget.controller.index);
       setState(() {
         _expanded = widget.index == widget.controller.index;
       });

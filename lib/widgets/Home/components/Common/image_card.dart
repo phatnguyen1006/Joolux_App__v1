@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
+import '../../../product_details_page/details_page.dart';
+
+import '../../../../constants.dart';
+
+Padding imageGrid() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
+    child: GridView.builder(
+        shrinkWrap: true,
+        //primary: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: products.length - 4,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: DefaultPadding,
+          crossAxisSpacing: 10,
+          childAspectRatio: 0.9,
+        ),
+        itemBuilder: (context, index) => ImageCard(
+            product: products[index],
+            press: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                )))),
+  );
+}
 
 class ImageCard extends StatelessWidget {
   final Product product;
