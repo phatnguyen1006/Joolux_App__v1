@@ -1,19 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
-
+// widgets
 import '../components/Common/footer.dart';
-import '../../../models/products/products.dart';
-import '../../../models/products/poster.dart';
-
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
 import '../components/Common/posters.dart';
 import '../components/Common/swiper.dart';
-import '../../product_details_page/details_page.dart';
 import '../components/Others/for_people.dart';
-
-import "../../../constants.dart";
+// const
+import '../../../constants/constants.dart';
 
 class DiscoveryBody extends StatelessWidget {
   const DiscoveryBody({Key? key}) : super(key: key);

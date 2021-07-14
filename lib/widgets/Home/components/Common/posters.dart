@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// widgets
 import '../../../../models/products/poster.dart';
 import '../../../product_details_page/details_page.dart';
 import '../../../Layout/app_pop_bar.dart';

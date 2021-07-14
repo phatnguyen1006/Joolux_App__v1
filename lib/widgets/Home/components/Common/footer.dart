@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../models/icons/icons.dart';
 
-import '../../../../constants.dart';
-
+import '../../../../constants/constants.dart';
 
 class Footer extends StatelessWidget {
   const Footer({
