@@ -53,11 +53,7 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-<<<<<<< HEAD
-        productsGridView(),
-=======
-        ProductGridView(),
->>>>>>> f502e01256008b8fc4d5936ec11af872a685f139
+        productGridView(),
         Footer(size: size),
       ],
     );
