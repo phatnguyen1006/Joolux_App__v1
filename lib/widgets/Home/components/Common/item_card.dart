@@ -5,7 +5,6 @@ import '../../../../models/products/products.dart';
 import '../../../../constants.dart';
 import '../../../product_details_page/details_page.dart';
 
-
 Padding productGridView() {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
