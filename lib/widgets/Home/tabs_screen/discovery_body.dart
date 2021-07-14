@@ -72,7 +72,7 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-        itemGridView(),
+        productsGridView(),
         Footer(size: size),
       ],
     );
