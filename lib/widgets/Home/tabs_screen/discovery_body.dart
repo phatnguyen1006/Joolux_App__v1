@@ -4,10 +4,11 @@ import 'package:flutter/painting.dart';
 
 import '../components/Common/footer.dart';
 import '../../../models/products/products.dart';
+import '../../../models/products/poster.dart';
 
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
-import '../components/Common/Posters.dart';
+import '../components/Common/posters.dart';
 import '../components/Common/swiper.dart';
 import '../../product_details_page/details_page.dart';
 import '../components/Others/for_people.dart';
@@ -28,27 +29,7 @@ class DiscoveryBody extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
-          child: GridView.builder(
-              shrinkWrap: true,
-              //primary: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: products.length - 4,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: DefaultPadding,
-                crossAxisSpacing: 10,
-                childAspectRatio: 0.9,
-              ),
-              itemBuilder: (context, index) => ImageCard(
-                  product: products[index],
-                  press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailsScreen(),
-                      )))),
-        ),
+        imageGrid(),
         SizedBox(
           height: 20,
         ),
