@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Poster {
   final String image;
   final String title;

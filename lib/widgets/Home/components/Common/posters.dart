@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 // widgets
 import '../../../../models/products/poster.dart';
-import '../../../product_details_page/details_page.dart';
 import '../../../Layout/app_pop_bar.dart';
 import '../cookie_page.dart';
 
@@ -43,17 +42,8 @@ class Posters extends StatelessWidget {
   }
 
   Widget posterIndex(index) {
-    return Column(
-      children: [
-        Expanded(
-          child: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(0),
-              child: Image.asset(posters[index].image),
-            ),
-          ),
-        ),
-      ],
+    return Container(
+      child: Image.asset(posters[index].image),
     );
   }
 }
