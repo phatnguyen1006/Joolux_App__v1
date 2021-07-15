@@ -24,7 +24,6 @@ class _MyScreenState extends State<MyScreen> {
     WishlistPage(),
   ];
 
-  @override
   void _setPage(int index) {
     setState(() {
       _currentPage = index;
