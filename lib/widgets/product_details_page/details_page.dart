@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Home/components/Common/footer.dart';
 import '../Layout/app_pop_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -6,7 +7,9 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       appBar: appPopBar(context),
       body: ListView(
@@ -20,7 +23,9 @@ class DetailsScreen extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          ExpandingItems()
+          ExpandingItems(),
+          AnimateExpanded(),
+          Footer(size: size)
         ],
       ),
     );
@@ -45,7 +50,7 @@ class ExpandingItems extends StatefulWidget {
 
 class _ExpandingItemsState extends State<ExpandingItems> {
   List<ProductInfo> _productinfo = <ProductInfo>[
-    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: true),
     ProductInfo(header: "header", body: "body", isExpanded: false),
     ProductInfo(header: "header", body: "body", isExpanded: false),
     ProductInfo(header: "header", body: "body", isExpanded: false),
@@ -58,11 +63,13 @@ class _ExpandingItemsState extends State<ExpandingItems> {
       physics: const NeverScrollableScrollPhysics(),
       child: Container(
         child: ExpansionPanelList(
-          expansionCallback: (index, isExpanded) => setState(() {
-            _productinfo[index].isExpanded = !isExpanded;
-          }),
+          expansionCallback: (index, isExpanded) =>
+              setState(() {
+                _productinfo[index].isExpanded = !isExpanded;
+              }),
           children: _productinfo
-              .map((info) => ExpansionPanel(
+              .map((info) =>
+              ExpansionPanel(
                   backgroundColor: Colors.white38,
                   canTapOnHeader: true,
                   headerBuilder: (context, isExpanded) {
@@ -74,6 +81,72 @@ class _ExpandingItemsState extends State<ExpandingItems> {
                   )))
               .toList(),
         ),
+      ),
+    );
+  }
+}
+
+class AnimateExpanded extends StatefulWidget {
+  @override
+  _AnimateExpandedState createState() => new _AnimateExpandedState();
+}
+
+class _AnimateExpandedState extends State<AnimateExpanded> {
+  List<ProductInfo> _productinfo = <ProductInfo>[
+    ProductInfo(header: "header", body: "body", isExpanded: true),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+  ];
+  double _bodyHeight = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: _productinfo.map(
+            (info) =>  GestureDetector(
+              onTap: () {
+                setState(() {
+                  info.isExpanded = !info.isExpanded;
+                });
+              },
+              child: new Card(
+                child: new AnimatedContainer(
+                  height: info.isExpanded ? 150.0 : 50.0,
+                  duration: const Duration(milliseconds: 100),
+                  child: Column(
+                    children: [
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(info.header),
+                          new IconButton(
+                            icon: info.isExpanded
+                                ? new Icon(Icons.add)
+                                : new Icon(Icons.remove),
+                            onPressed: () {
+                              setState(() {
+                                info.isExpanded = !info.isExpanded;
+                              });
+                            },
+                          )
+                        ],
+                      ),
+                      Container(
+                        child: Expanded(
+                            child: const Text(
+                                "Tiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjddddddddddddddddddddddddddddddddddddd")),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ).toList()
       ),
     );
   }
