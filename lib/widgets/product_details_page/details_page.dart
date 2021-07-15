@@ -117,7 +117,7 @@ class _AnimateExpandedState extends State<AnimateExpanded> {
                     child: AnimatedContainer(
                       // constraints: BoxConstraints(
                       //     minHeight: 50, maxHeight: double.infinity),
-                      //height: info.isExpanded ? double.infinity : 50.0,
+                      height: info.isExpanded ? 150.0 : 50.0,
                       width: size.width,
                       decoration: BoxDecoration(
                         color: Colors.grey
