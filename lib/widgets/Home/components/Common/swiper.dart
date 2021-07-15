@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:joolux_demo/constants.dart';
+import 'package:joolux_demo/constants/constants.dart';
 import '../../../../models/products/poster.dart';
 
 class Swipers extends StatefulWidget {
@@ -39,7 +39,6 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  @override
   void _setTitle(int index) {
     setState(() {
       _title = posters.elementAt(index).title;

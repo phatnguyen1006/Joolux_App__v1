@@ -52,14 +52,6 @@ class HomeTabBar extends StatelessWidget {
                       fontSize: 12.0,
                     )),
               ),
-              // Tab(
-              //   child: Text(tab.title,
-              //       style: TextStyle(
-              //         // backgroundColor: Colors.red,
-              //         fontFamily: 'Varela',
-              //         fontSize: 13.0,
-              //       )),
-              // )
             ],
           ),
         );

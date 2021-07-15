@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
 import '../../../product_details_page/details_page.dart';
 
-import '../../../../constants.dart';
+import '../../../../constants/constants.dart';
 
 Padding imageGrid() {
   return Padding(
