@@ -58,7 +58,7 @@ class Footer extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(top: 4.0),
                               child: const Text(
-                                "Extensive luxury collection where each item is unique & high on fashionExtensive luxury collection where each item is unique & high on fashion",
+                                "Extensive luxury collection where each item is unique & high on Extensive luxury collection where each item is unique & high on fashionExtensive luxury collection where each item is unique & high on fashion",
                               ),
                             ),
                           ],

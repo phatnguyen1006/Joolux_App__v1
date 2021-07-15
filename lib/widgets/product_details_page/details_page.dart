@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Home/components/Common/footer.dart';
 import '../Layout/app_pop_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -20,7 +21,9 @@ class DetailsScreen extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          ExpandingItems()
+          ExpandingItems(),
+          AnimateExpanded(),
+          Footer(size: size)
         ],
       ),
     );
@@ -45,7 +48,7 @@ class ExpandingItems extends StatefulWidget {
 
 class _ExpandingItemsState extends State<ExpandingItems> {
   List<ProductInfo> _productinfo = <ProductInfo>[
-    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "TiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddTiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjddddddddddddddddddddddddddddddddddddd", isExpanded: true),
     ProductInfo(header: "header", body: "body", isExpanded: false),
     ProductInfo(header: "header", body: "body", isExpanded: false),
     ProductInfo(header: "header", body: "body", isExpanded: false),
@@ -56,6 +59,7 @@ class _ExpandingItemsState extends State<ExpandingItems> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
       child: Container(
         child: ExpansionPanelList(
           expansionCallback: (index, isExpanded) => setState(() {
@@ -76,5 +80,75 @@ class _ExpandingItemsState extends State<ExpandingItems> {
         ),
       ),
     );
+  }
+}
+
+class AnimateExpanded extends StatefulWidget {
+  @override
+  _AnimateExpandedState createState() => new _AnimateExpandedState();
+}
+
+class _AnimateExpandedState extends State<AnimateExpanded> {
+  List<ProductInfo> _productinfo = <ProductInfo>[
+    ProductInfo(header: "header", body: "body", isExpanded: true),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+    ProductInfo(header: "header", body: "body", isExpanded: false),
+  ];
+  double _bodyHeight = 0.0;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return ListView(
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        physics: const NeverScrollableScrollPhysics(),
+        children: _productinfo
+            .map((info) => GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      info.isExpanded = !info.isExpanded;
+                    });
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: AnimatedContainer(
+                      // constraints: BoxConstraints(
+                      //     minHeight: 50, maxHeight: double.infinity),
+                      height: info.isExpanded ? 150.0 : 50.0,
+                      width: size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.grey
+                      ),
+                      duration: const Duration(milliseconds: 100),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: <Widget>[
+                              Text(info.header),
+                              IconButton(
+                                icon: info.isExpanded
+                                    ? Icon(Icons.add)
+                                    : Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    info.isExpanded = !info.isExpanded;
+                                  });
+                                },
+                              )
+                            ],
+                          ),
+                          Expanded(
+                              child: const Text(
+                                  "TiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddTiledjTiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjddddddddddddddddddddddddddddddddddddd"),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ))
+            .toList());
   }
 }
