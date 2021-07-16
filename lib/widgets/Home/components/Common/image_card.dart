@@ -39,7 +39,7 @@ class ImageCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => press(),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
             child: Container(
@@ -47,16 +47,11 @@ class ImageCard extends StatelessWidget {
                 color: product.color,
                 borderRadius: BorderRadius.circular(0),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Image.asset(product.image),
-                  ),
-                ],
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(60),
+                  child: Image.asset(product.image),
+                ),
               ),
             ),
           ),
