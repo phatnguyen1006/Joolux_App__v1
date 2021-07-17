@@ -1,22 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
-import '../../../models/products/poster.dart';
-import '../../../models/products/products.dart';
 import '../../../models/products/sale_off.dart';
+import '../../../models/products/products.dart';
 // widgets
 import '../components/Common/footer.dart';
-import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
-import '../components/Common/posters.dart';
 import '../components/Common/sale_off_grid.dart';
 import '../components/Common/swiper.dart';
-import '../components/Others/for_people.dart';
+
 // const
 import '../../../constants/constants.dart';
 
-class DiscoveryBody extends StatelessWidget {
-  const DiscoveryBody({Key? key}) : super(key: key);
+class SaleBody extends StatelessWidget {
+  const SaleBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +23,6 @@ class DiscoveryBody extends StatelessWidget {
       shrinkWrap: true,
       children: [
         Swipers(),
-        SizedBox(
-          height: 20,
-        ),
-        ImageGrid(products: products, count: 4),
-        SizedBox(
-          height: 20,
-        ),
-        Posters(poster: posters),
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding),
           child: SizedBox(
@@ -49,23 +38,7 @@ class DiscoveryBody extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        ForPeople(typePeople: 'MEN'),
-        ForPeople(typePeople: "WOMEN"),
-        SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: DefaultPadding / 2),
-          child: SizedBox(
-            width: size.width,
-            height: size.height * 0.05,
-            child: const Text(
-              "Editor's Picks",
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-        productGridView(),
+        ImageGrid(products: products, count: 2),
         Footer(size: size),
       ],
     );

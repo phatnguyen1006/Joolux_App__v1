@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
 import '../../../models/products/poster.dart';
+import '../../../models/products/products.dart';
 // widgets
 import '../components/Common/footer.dart';
 import '../components/Common/image_card.dart';
@@ -47,7 +48,7 @@ class WomenBody extends StatelessWidget {
             ),
           ),
         ),
-        imageGrid(),
+        ImageGrid(products: products, count: 6),
         SizedBox(
           height: 20,
         ),
@@ -62,7 +63,7 @@ class WomenBody extends StatelessWidget {
             ),
           ),
         ),
-        imageGrid(),
+        ImageGrid(products: products, count: 4),
         SizedBox(
           height: 20,
         ),

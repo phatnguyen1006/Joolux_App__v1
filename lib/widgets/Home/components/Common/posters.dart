@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// widgets
 import '../../../../models/products/poster.dart';
+// widgets
 import '../../../Layout/app_pop_bar.dart';
 import '../cookie_page.dart';
 
