@@ -53,7 +53,7 @@ class ImageGrid extends StatelessWidget {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.green.shade100,
+              color: products[index].color,
               borderRadius: BorderRadius.circular(0),
             ),
             child: Center(

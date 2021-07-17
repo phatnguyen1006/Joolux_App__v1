@@ -36,7 +36,7 @@ class WomenBody extends StatelessWidget {
             ),
           ),
         ),
-        Posters(poster: posters),
+        Posters(poster: posters, number: 3),
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding),
           child: SizedBox(

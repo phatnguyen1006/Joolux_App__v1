@@ -6,7 +6,9 @@ import '../cookie_page.dart';
 
 class Posters extends StatelessWidget {
   final List<Poster> poster;
-  const Posters({Key? key, required this.poster}) : super(key: key);
+  final number;
+  const Posters({Key? key, required this.poster, required this.number})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +28,7 @@ class Posters extends StatelessWidget {
               child: GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: poster.length,
+                itemCount: number,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   mainAxisSpacing: 10,
