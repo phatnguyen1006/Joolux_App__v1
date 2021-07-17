@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+import '../../../models/products/poster.dart';
 // widgets
 import '../components/Common/footer.dart';
 import '../components/Common/item_card.dart';
@@ -29,7 +30,7 @@ class DiscoveryBody extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Posters(),
+        Posters(poster: posters),
         SizedBox(
           height: 20,
         ),

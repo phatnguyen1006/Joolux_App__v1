@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+import '../../../models/products/poster.dart';
 // widgets
 import '../components/Common/footer.dart';
 import '../components/Common/image_card.dart';
@@ -34,7 +35,7 @@ class WomenBody extends StatelessWidget {
             ),
           ),
         ),
-        Posters(),
+        Posters(poster: posters),
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding),
           child: SizedBox(

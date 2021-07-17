@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:joolux_demo/widgets/Home/tabs_screen/women_body.dart';
-
 import './tabs_screen/discovery_body.dart';
 import './tabs_screen/women_body.dart';
 
@@ -36,7 +34,7 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
               child: TabBarView(controller: _tabController, children: [
                 DiscoveryBody(),
                 WomenBody(),
-                CookiePage(),
+                WomenBody(),
                 CookiePage(),
                 CookiePage(),
                 CookiePage(),
