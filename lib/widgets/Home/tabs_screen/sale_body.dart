@@ -23,17 +23,6 @@ class SaleBody extends StatelessWidget {
       shrinkWrap: true,
       children: [
         Swipers(),
-        Padding(
-          padding: const EdgeInsets.only(top: DefaultPadding),
-          child: SizedBox(
-            width: size.width,
-            height: size.height * 0.05,
-            child: const Text(
-              "Sale up to 90%",
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
         SaleOff(sale: saleOff),
         SizedBox(
           height: 20,
