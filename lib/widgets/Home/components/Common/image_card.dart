@@ -23,7 +23,7 @@ Padding imageGrid() {
             press: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
+                  builder: (context) => DetailsScreen(product: products[index],),
                 )))),
   );
 }
