@@ -18,7 +18,7 @@ class NewArrivalBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       children: [
-        productGridView(),
+        ProductGridView(),
         Padding(
           padding: EdgeInsets.only(top: 15, right: 25, bottom: 20, left: 25),
           // width: size.width - DefaultPadding,
