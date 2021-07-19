@@ -17,11 +17,11 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
 
   final List<Widget> _sliders = List.generate(
     posters.length,
-    (index) => Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0),
+    (index) => Container(
       child: Image.asset(
         posters[index].image,
-        fit: BoxFit.fill,
+        // cần fix lại chưa ổn
+        alignment: AlignmentDirectional.topCenter,
       ),
     ),
   );
@@ -61,7 +61,7 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
               children: _sliders,
             ),
             Positioned(
-              top: 200,
+              top: 150,
               left: DefaultPadding,
               right: DefaultPadding,
               bottom: 0,
@@ -76,13 +76,22 @@ class _SwipersState extends State<Swipers> with SingleTickerProviderStateMixin {
                       style: TextStyle(color: Colors.black),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 20,
+                    ),
+                    SizedBox(
+                      child: const Text(
+                        "Shop Now",
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 10),
-                        width: 30,
+                        width: 40,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: List.generate(_sliders.length, (index) {

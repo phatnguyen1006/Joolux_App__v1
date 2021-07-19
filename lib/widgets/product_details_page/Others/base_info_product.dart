@@ -13,7 +13,7 @@ class BaseInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      padding: const EdgeInsets.only(top: 8.0, bottom: 0),
       child: Container(
         decoration: BoxDecoration(
             color: Color(0xFFECEFF1)
@@ -80,9 +80,11 @@ class BaseInfo extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text("Final Price: \$894. Use Voucher Code: EID21",
-                          style: TextStyle(
-                            fontSize: 12,
+                        Expanded(
+                          child: Text("Final Price: \$894. Use Voucher Code: EID21",
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
                           ),
                         ),
                       ],

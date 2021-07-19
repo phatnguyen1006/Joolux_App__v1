@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../../../models/products/poster.dart';
-// widgets
-import '../../../Layout/app_pop_bar.dart';
-import '../cookie_page.dart';
+import '../../../../models/products/sale_off.dart';
 
-class Posters extends StatelessWidget {
-  final List<Poster> poster;
-  final number;
-  const Posters({Key? key, required this.poster, required this.number})
-      : super(key: key);
+import '../cookie_page.dart';
+import '../../../Layout/app_pop_bar.dart';
+import '../../../../constants/constants.dart';
+
+class SaleOff extends StatelessWidget {
+  final List<Sale> sale;
+  const SaleOff({Key? key, required this.sale}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,17 +24,18 @@ class Posters extends StatelessWidget {
                   ),
                 )),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
+              padding: const EdgeInsets.symmetric(horizontal: DefaultPadding),
               child: GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: number,
+                itemCount: sale.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1.9,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: DefaultPadding,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 1,
                 ),
-                itemBuilder: (context, index) => posterIndex(index),
+                itemBuilder: (context, index) => imageIndex(index),
               ),
             ),
           ),
@@ -43,9 +44,14 @@ class Posters extends StatelessWidget {
     );
   }
 
-  Widget posterIndex(index) {
-    return Container(
-      child: Image.asset(poster[index].image),
+  Widget imageIndex(index) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          child: Image.asset(sale[index].image),
+        ),
+      ],
     );
   }
 }
