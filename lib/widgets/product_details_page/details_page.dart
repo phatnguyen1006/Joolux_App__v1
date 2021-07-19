@@ -1,9 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Components Widget
+import '../../models/products/products.dart';
 import '../Home/components/Common/footer.dart';
 import '../Layout/app_pop_bar.dart';
+import 'Others/base_info_product.dart';
+import 'Others/delivery_return_info.dart';
+import 'Others/images_view_products.dart';
+import 'Others/policy_info_product.dart';
+import '../../models/products/poster.dart';
+import '../../widgets/Home/components/Common/posters.dart';
+import 'Others/similar_recently_products.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key}) : super(key: key);
+  final Product product;
+
+  const DetailsScreen({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,141 +27,117 @@ class DetailsScreen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         children: [
-          Container(
-            width: size.width,
-            height: 200,
-            decoration: BoxDecoration(
-              color: Colors.grey,
+          Posters(poster: posters, number: 1),
+          ProductState(),
+          CarouseImagesSlider(
+              imgProductList:
+                  products.map((product) => product.image).toList()),
+          BaseInfo(product: product, size: size),
+          DeliveryReturnInfo(),
+          AnimateExpanded(),
+          SimilarRecentlyProducts(),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Container(
+              height: 40,
+              width: size.width,
+              decoration: BoxDecoration(color: Color(0xFFECEFF1)),
             ),
           ),
-          ExpandingItems(),
-          AnimateExpanded(),
-          Footer(size: size)
+          Footer(size: size),
+        ],
+      ),
+      persistentFooterButtons: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(4)),
+                  child: TextButton(
+                      onPressed: () {
+                        print("BUY NOW");
+                      },
+                      child: Text("BUY NOW",
+                          style: TextStyle(color: Colors.black))),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.black),
+                  child: TextButton(
+                      onPressed: () {
+                        print("ADD TO BAG ");
+                      },
+                      child: Text(
+                        "ADD TO BAG",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class ProductState extends StatelessWidget {
+  const ProductState({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFECEFF1)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+                child: Text("WELL USED"),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+                Icon(
+                    Icons.check_circle_outline,
+                    color: Colors.grey,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0, right: 8.0),
+                  child: Text(
+                      "100% Authentic",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey
+                      ),
+                  ),
+                )
+            ],
+          )
         ],
       ),
     );
-  }
-}
-
-class ProductInfo {
-  bool isExpanded;
-  final String header;
-  final String body;
-
-  ProductInfo(
-      {required this.header, required this.body, required this.isExpanded});
-}
-
-class ExpandingItems extends StatefulWidget {
-  ExpandingItems({Key? key}) : super(key: key);
-
-  @override
-  _ExpandingItemsState createState() => _ExpandingItemsState();
-}
-
-class _ExpandingItemsState extends State<ExpandingItems> {
-  List<ProductInfo> _productinfo = <ProductInfo>[
-    ProductInfo(header: "header", body: "TiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddTiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjddddddddddddddddddddddddddddddddddddd", isExpanded: true),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      scrollDirection: Axis.vertical,
-      child: Container(
-        child: ExpansionPanelList(
-          expansionCallback: (index, isExpanded) => setState(() {
-            _productinfo[index].isExpanded = !isExpanded;
-          }),
-          children: _productinfo
-              .map((info) => ExpansionPanel(
-                  backgroundColor: Colors.white38,
-                  canTapOnHeader: true,
-                  headerBuilder: (context, isExpanded) {
-                    return Text(info.header);
-                  },
-                  isExpanded: info.isExpanded,
-                  body: Container(
-                    child: Text(info.body),
-                  )))
-              .toList(),
-        ),
-      ),
-    );
-  }
-}
-
-class AnimateExpanded extends StatefulWidget {
-  @override
-  _AnimateExpandedState createState() => new _AnimateExpandedState();
-}
-
-class _AnimateExpandedState extends State<AnimateExpanded> {
-  List<ProductInfo> _productinfo = <ProductInfo>[
-    ProductInfo(header: "header", body: "body", isExpanded: true),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-    ProductInfo(header: "header", body: "body", isExpanded: false),
-  ];
-  double _bodyHeight = 0.0;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return ListView(
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        physics: const NeverScrollableScrollPhysics(),
-        children: _productinfo
-            .map((info) => GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      info.isExpanded = !info.isExpanded;
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: AnimatedContainer(
-                      // constraints: BoxConstraints(
-                      //     minHeight: 50, maxHeight: double.infinity),
-                      height: info.isExpanded ? 150.0 : 50.0,
-                      width: size.width,
-                      decoration: BoxDecoration(
-                        color: Colors.grey
-                      ),
-                      duration: const Duration(milliseconds: 100),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: <Widget>[
-                              Text(info.header),
-                              IconButton(
-                                icon: info.isExpanded
-                                    ? Icon(Icons.add)
-                                    : Icon(Icons.remove),
-                                onPressed: () {
-                                  setState(() {
-                                    info.isExpanded = !info.isExpanded;
-                                  });
-                                },
-                              )
-                            ],
-                          ),
-                          Expanded(
-                              child: const Text(
-                                  "TiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddTiledjTiledjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjdddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjdjddjddddddddddddddddddddddddddddddddddddd"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ))
-            .toList());
   }
 }
