@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+import '../../../models/products/poster.dart';
+import '../../../models/products/products.dart';
+import '../../../models/products/sale_off.dart';
 // widgets
 import '../components/Common/footer.dart';
 import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
 import '../components/Common/posters.dart';
+import '../components/Common/sale_off_grid.dart';
 import '../components/Common/swiper.dart';
 import '../components/Others/for_people.dart';
 // const
@@ -22,14 +26,23 @@ class DiscoveryBody extends StatelessWidget {
       shrinkWrap: true,
       children: [
         Swipers(),
+        ImageGrid(products: products, count: 4),
         SizedBox(
           height: 20,
         ),
-        imageGrid(),
-        SizedBox(
-          height: 20,
+        Posters(poster: posters, number: 3),
+        Padding(
+          padding: const EdgeInsets.only(top: DefaultPadding),
+          child: SizedBox(
+            width: size.width,
+            height: size.height * 0.05,
+            child: const Text(
+              "SALE! Up To 90% Off!",
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
-        Posters(),
+        SaleOff(sale: saleOff),
         SizedBox(
           height: 20,
         ),

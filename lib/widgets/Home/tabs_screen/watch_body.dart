@@ -10,8 +10,8 @@ import '../components/Common/posters.dart';
 // const
 import '../../../constants/constants.dart';
 
-class WomenBody extends StatelessWidget {
-  const WomenBody({Key? key}) : super(key: key);
+class WatchBody extends StatelessWidget {
+  const WatchBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,29 +36,14 @@ class WomenBody extends StatelessWidget {
             ),
           ),
         ),
-        Posters(poster: posters, number: 3),
+        Posters(poster: posters, number: 2),
         Padding(
           padding: const EdgeInsets.only(top: DefaultPadding),
           child: SizedBox(
             width: size.width,
             height: size.height * 0.05,
             child: const Text(
-              "CATEGORIES",
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
-        ImageGrid(products: products, count: 6),
-        SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: DefaultPadding),
-          child: SizedBox(
-            width: size.width,
-            height: size.height * 0.05,
-            child: const Text(
-              "TOP SELLING BRANDS",
+              "Top Brands",
               textAlign: TextAlign.center,
             ),
           ),
@@ -67,6 +52,11 @@ class WomenBody extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
+        Posters(poster: posters, number: 3),
+        SizedBox(
+          height: 20,
+        ),
+        ImageGrid(products: products, count: 2),
         Footer(size: size),
       ],
     );

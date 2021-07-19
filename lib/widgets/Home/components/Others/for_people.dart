@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../Layout/app_pop_bar.dart';
-
+import '../../../../models/products/poster.dart';
+//Widgets
+//import '../../../Layout/app_pop_bar.dart';
+import '../Common/posters.dart';
 import '../../../../constants/constants.dart';
-import '../cookie_page.dart';
+//import '../cookie_page.dart';
 
 class ForPeople extends StatelessWidget {
   final String typePeople;
@@ -10,32 +12,33 @@ class ForPeople extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return Container(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: GestureDetector(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Scaffold(
-                        appBar: appPopBar(context),
-                        body: CookiePage(),
-                      ),
-                    )),
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Container(
-                    width: size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                )),
-          ),
+          Posters(poster: posters, number: 1),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 8.0),
+          //   child: GestureDetector(
+          //       onTap: () => Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //             builder: (context) => Scaffold(
+          //               appBar: appPopBar(context),
+          //               body: CookiePage(),
+          //             ),
+          //           )),
+          //       child: Padding(
+          //         padding: const EdgeInsets.only(bottom: 8.0),
+          //         child: Container(
+          //           width: size.width,
+          //           height: 200,
+          //           decoration: BoxDecoration(
+          //             color: Colors.blueGrey,
+          //           ),
+          //         ),
+          //       )),
+          // ),
           GestureDetector(
               onTap: () {
                 print("Clicked");
