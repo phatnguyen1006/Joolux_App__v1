@@ -6,20 +6,19 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Auth with ChangeNotifier {
-  late bool _isAuth = false;
+  static bool _isAuth = false;
 
   bool get isAuth {
-    if (_isAuth != null) return _isAuth;
-    return false;
+    return _isAuth;
   }
 
   void logIn() {
     _isAuth = true;
-    // notifyListeners();
+    notifyListeners();
   }
 
   void logOut() {
     _isAuth = false;
-    // notifyListeners();
+    notifyListeners();
   }
 }

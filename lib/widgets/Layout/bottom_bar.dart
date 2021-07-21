@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:joolux_demo/UI/Authentication/auth_page.dart';
 // Auth_Helper_Middleware
-import '../../helpers/auth_middleware.dart';
-// Route need to check Middle
-import '../../UI/User/wishlist_page.dart';
 // provider
 import '../../providers/auth.dart';
 // icon
@@ -115,12 +113,9 @@ class BottomBar extends StatelessWidget {
                                 onTap: () {
                                   // Checking Middleware before setPage.
                                   if (!isAuth) {
-                                    AuthMiddleware.of(context)!
-                                        .pushConditionally(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    WishlistPage()));
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => AuthPage()));
                                     return;
                                   }
                                   setPage(4);

@@ -7,7 +7,6 @@ import './UI/Designer/designer_page.dart';
 import './UI/User/wishlist_page.dart';
 import './UI/ItemSell/sell_item_page.dart';
 // helpers
-import './helpers/auth_middleware.dart';
 // widgets
 import './widgets/Layout/bottom_bar.dart';
 import './widgets/Layout/floating_button.dart';
@@ -48,16 +47,14 @@ class _MyScreenState extends State<MyScreen> {
         // ChangeNotifierProxyProvider(),
       ],
       child: Consumer<Auth>(
-        builder: (context, auth, _) => AuthMiddleware(
-          destScreen: Scaffold(
-            appBar: Header(),
-            body: Container(child: _routeList.elementAt(widget.currentPage)),
-            floatingActionButton: FloatingButton(setPage: _setPage),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar:
-                BottomBar(currentPage: widget.currentPage, setPage: _setPage),
-          ),
+        builder: (context, auth, _) => Scaffold(
+          appBar: Header(),
+          body: Container(child: _routeList.elementAt(widget.currentPage)),
+          floatingActionButton: FloatingButton(setPage: _setPage),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar:
+              BottomBar(currentPage: widget.currentPage, setPage: _setPage),
         ),
       ),
     );

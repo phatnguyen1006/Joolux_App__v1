@@ -21,7 +21,7 @@ class _AuthPageState extends State<AuthPage> {
             print(Auth().isAuth);
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => MyScreen(
-                      currentPage: 3,
+                      currentPage: 4,
                     )));
           },
         ));
