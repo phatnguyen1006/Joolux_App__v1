@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:joolux_demo/UI/Authentication/auth_page.dart';
+// Auth_Helper_Middleware
+// provider
+import '../../providers/auth.dart';
 // icon
 import '../../models/icons/icons.dart';
 
+// ignore: must_be_immutable
 class BottomBar extends StatelessWidget {
   final int currentPage;
   final Function setPage;
+  bool isAuth = Auth().isAuth;
 
   BottomBar({required this.currentPage, required this.setPage});
 
@@ -88,11 +93,11 @@ class BottomBar extends StatelessWidget {
                               padding: EdgeInsets.only(top: 10, bottom: 5),
                               child: InkWell(
                                 onTap: () {
-                                  setPage(2);
+                                  setPage(3);
                                 },
                                 child: Column(children: [
                                   Icon(Icons.fireplace_rounded,
-                                      color: currentPage == 2
+                                      color: currentPage == 3
                                           ? Colors.black
                                           : Colors.grey[400]),
                                   Container(
@@ -106,11 +111,18 @@ class BottomBar extends StatelessWidget {
                               padding: EdgeInsets.only(top: 10, bottom: 5),
                               child: InkWell(
                                 onTap: () {
-                                  setPage(3);
+                                  // Checking Middleware before setPage.
+                                  if (!isAuth) {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => AuthPage()));
+                                    return;
+                                  }
+                                  setPage(4);
                                 },
                                 child: Column(children: [
                                   Icon(MyIcon.heart,
-                                      color: currentPage == 3
+                                      color: currentPage == 4
                                           ? Colors.black
                                           : Colors.grey[400]),
                                   Container(
