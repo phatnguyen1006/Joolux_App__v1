@@ -30,6 +30,11 @@ dependencies:
   provider: ^5.0.0
   http: ^0.13.3
   shared_preferences: ^2.0.6
+  firebase_core: ^1.4.0
+  firebase_auth: ^3.0.1
+  google_sign_in: ^5.0.5
+  firebase_messaging: ^10.0.4
+  firebase_analytics: ^8.2.0
 
 dev_dependencies:
   flutter_test:
