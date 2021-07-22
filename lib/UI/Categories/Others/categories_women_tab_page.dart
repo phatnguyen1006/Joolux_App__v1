@@ -55,6 +55,8 @@ class WomenTabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ListView(
+      shrinkWrap: true,
+      primary: true,
       children: productWomenTypes.map(
         (productType) =>  GestureDetector(
           onTap: () => Navigator.push(

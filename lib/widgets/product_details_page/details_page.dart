@@ -22,7 +22,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: appPopBar(context, ""),
+      appBar: appPopBar(context, "THE LUXURY CLOSET"),
       body: ListView(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,

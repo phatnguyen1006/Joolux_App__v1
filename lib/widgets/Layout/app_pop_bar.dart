@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:joolux_demo/widgets/Layout/search_page_app_bar.dart';
 
 import '../../constants/constants.dart';
 
@@ -29,7 +30,9 @@ AppBar appPopBar(BuildContext context, String title) {
       IconButton(
         icon: SvgPicture.asset("assets/icons/search.svg",
             color: Color(0xFF545D68)),
-        onPressed: () {},
+        onPressed: () {
+          showSearch(context: context, delegate: SearchPage());
+        }
       ),
       IconButton(
         icon:

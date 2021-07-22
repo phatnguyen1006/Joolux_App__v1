@@ -22,30 +22,33 @@ class ChooseProductTypes extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.black),
           ),
           Flexible(
-            child: SingleChildScrollView(
+            child: Container(
+              height: productType.type.length * 1.0 * 40 + 100,
+              child: ListView(
                 scrollDirection: Axis.vertical,
-                child: Column(
-                  children: productType.type
-                      .map((type) => GestureDetector(
-                            onTap: () {
-                              print("$type");
-                            },
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              height: 40,
-                              width: size.width,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  type,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 15),
-                                ),
+                shrinkWrap: true,
+                children: productType.type
+                    .map((type) => GestureDetector(
+                          onTap: () {
+                            print("$type");
+                          },
+                          child: Container(
+                            alignment: Alignment.centerLeft,
+                            height: 40,
+                            width: size.width,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                type,
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 15),
                               ),
                             ),
-                          ))
-                      .toList(),
-                )),
+                          ),
+                        ))
+                    .toList(),
+              ),
+            ),
           ),
         ],
       ),
