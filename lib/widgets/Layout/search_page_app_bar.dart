@@ -84,7 +84,7 @@ class SearchPage extends SearchDelegate<String> {
                 },
                 icon: Icon(Icons.clear))
           ]
-        : [];
+        : null;
   }
 
   @override
