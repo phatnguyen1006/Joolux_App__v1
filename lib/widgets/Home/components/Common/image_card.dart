@@ -21,7 +21,7 @@ class ImageGrid extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => Scaffold(
-                    appBar: appPopBar(context),
+                    appBar: appPopBar(context, ""),
                     body: CookiePage(),
                   ),
                 )),
