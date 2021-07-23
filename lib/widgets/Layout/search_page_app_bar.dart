@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+
 // Component Widgets
-import 'package:joolux_demo/models/products/products.dart';
-import 'package:joolux_demo/widgets/Home/components/Common/item_card.dart';
 import '../Home/components/cookie_page.dart';
+import 'Others/StartScreenSearch.dart';
 
 List<String> dataAPI = [
   "All Shoes",
@@ -125,45 +125,7 @@ class SearchPage extends SearchDelegate<String> {
     final myList =
         query.isEmpty ? [] : dataAPI.where((e) => e.startsWith(query)).toList();
     return query.isEmpty
-        ? Column(
-            children: [
-              Container(
-                width: size.width,
-                height: 0.2,
-                decoration: BoxDecoration(color: Colors.black),
-              ),
-              Flexible(
-                child: ListView(children: [
-                  Container(
-                    height: size.width,
-                    child: GridView.builder(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: products.length,
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: ItemCard(
-                          product: products[index],
-                          press: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CookiePage(),
-                              )),
-                          wishList: false,
-                        ),
-                      ),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: 0,
-                        crossAxisSpacing: 0,
-                        childAspectRatio: 1.8,
-                      ),
-                    ),
-                  ),
-                ]),
-              ),
-            ],
-          )
+        ? StartScreenSearch(size: size)
         : Column(
             children: [
               Container(
@@ -228,3 +190,6 @@ class SearchPage extends SearchDelegate<String> {
           );
   }
 }
+
+
+

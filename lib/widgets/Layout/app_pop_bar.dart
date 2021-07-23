@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:joolux_demo/widgets/Layout/search_page_app_bar.dart';
 
+
+import '../../widgets/Layout/search_page_app_bar.dart';
 import '../../constants/constants.dart';
 
 AppBar appPopBar(BuildContext context, String title) {
