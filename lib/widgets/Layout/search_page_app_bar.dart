@@ -76,7 +76,7 @@ class SearchPage extends SearchDelegate<String> {
             searchFieldStyle: TextStyle(color: Colors.grey, fontSize: 15));
 
   @override
-  List<Widget> buildActions(BuildContext context) {
+  List<Widget>? buildActions(BuildContext context) {
     return query.isNotEmpty
         ? [
             IconButton(
@@ -89,7 +89,7 @@ class SearchPage extends SearchDelegate<String> {
   }
 
   @override
-  Widget buildLeading(BuildContext context) {
+  Widget? buildLeading(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.center,
