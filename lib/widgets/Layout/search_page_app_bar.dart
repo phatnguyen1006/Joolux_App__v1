@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 // Component Widgets
 import '../Home/components/cookie_page.dart';
 import 'Others/StartScreenSearch.dart';
@@ -190,6 +189,3 @@ class SearchPage extends SearchDelegate<String> {
           );
   }
 }
-
-
-
