@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "784926822518",
+    "project_id": "joolux-efac2",
+    "storage_bucket": "joolux-efac2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784926822518:android:23ba8d9904672337b64f57",
+        "android_client_info": {
+          "package_name": "com.example.joolux_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784926822518-2cmfrglcfaerhdjhiic9nu92rrj21a40.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.joolux_demo",
+            "certificate_hash": "b3e256cdba2554c84a737add678215ca5aa9fb89"
+          }
+        },
+        {
+          "client_id": "784926822518-6t8ijt1483geokm2861miulricjh4a1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyP8VNIxRQXwSNUUWHLc5ek0_cwBNAVfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784926822518-6t8ijt1483geokm2861miulricjh4a1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

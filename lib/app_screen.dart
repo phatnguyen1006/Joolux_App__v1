@@ -14,6 +14,7 @@ import './widgets/Layout/app_bar.dart';
 // provider
 import './providers/auth.dart';
 
+// ignore: must_be_immutable
 class MyScreen extends StatefulWidget {
   int currentPage;
   MyScreen({required this.currentPage});
@@ -41,6 +42,8 @@ class _MyScreenState extends State<MyScreen> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        // Provider
+        // Notifier
         ChangeNotifierProvider(
           create: (_) => Auth(),
         ),
