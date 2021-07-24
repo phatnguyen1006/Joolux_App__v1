@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// _Firebase
+import '../../../providers/auth.dart';
 
 class GoogleSigninButton extends StatelessWidget {
   const GoogleSigninButton({Key? key}) : super(key: key);
+  Future<void> _signIn() async {
+    await Auth().signIn();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +15,7 @@ class GoogleSigninButton extends StatelessWidget {
         height: 55,
         width: (MediaQuery.of(context).size.width / 2) - 20,
         child: OutlineButton.icon(
-          onPressed: () {},
+          onPressed: _signIn,
           icon: Image.asset(
             "assets/images/google_logo.png",
             fit: BoxFit.contain,

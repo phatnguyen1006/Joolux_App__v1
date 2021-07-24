@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // routes
@@ -43,6 +44,10 @@ class _MyScreenState extends State<MyScreen> {
     return MultiProvider(
       providers: [
         // Provider
+        StreamProvider.value(
+          value: FirebaseAuth.instance.authStateChanges(),
+          initialData: null,
+        ),
         // Notifier
         ChangeNotifierProvider(
           create: (_) => Auth(),
