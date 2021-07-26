@@ -15,7 +15,7 @@ class _HowWidgetsState extends State<HowWidgets> {
     return DefaultTabController(
       length: 2,
       child: Padding(
-        padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 35),
+        padding: EdgeInsets.only(top: 20, left: 10, right: 10),
         child: Column(
           children: [
             Container(
@@ -36,14 +36,12 @@ class _HowWidgetsState extends State<HowWidgets> {
                 unselectedLabelColor: Colors.grey.shade500,
               ),
             ),
-            Expanded(
-              child: SizedBox(
-                child: TabBarView(
-                  children: [
-                    PremiumTab(),
-                    HowToSellTab(),
-                  ],
-                ),
+            Flexible(
+              child: TabBarView(
+                children: [
+                  PremiumTab(),
+                  HowToSellTab(),
+                ],
               ),
             ),
           ],

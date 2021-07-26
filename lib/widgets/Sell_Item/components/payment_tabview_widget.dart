@@ -18,28 +18,24 @@ class _PaymentWidgetsState extends State<PaymentWidgets> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 35),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+      child: ListView(
         children: [
-          Expanded(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "Payment Process",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                    ),
+          Padding(
+            padding:
+                EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Text(
+                    "Payment Process",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
-                  AnimateExpanded(),
-                ],
-              ),
+                ),
+                AnimateExpanded(),
+              ],
             ),
           ),
         ],

@@ -50,145 +50,143 @@ class _HowToSellState extends State<HowToSellTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 7, right: 9, top: 20, bottom: 20),
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 10, bottom: 30),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "How To Sell With Us?",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "IT IS EASY, FAST & HASSLE-FREE",
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 7, right: 9, top: 20),
+      child: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 10, bottom: 30),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "How To Sell With Us?",
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "IT IS EASY, FAST & HASSLE-FREE",
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
             ),
-            Column(
-                children: _parainfo.map((para) {
-              var index = (_parainfo.indexOf(para) + 1).toString();
-              return SizedBox(
-                child: TimelineTile(
-                  axis: TimelineAxis.vertical,
-                  alignment: TimelineAlign.start,
-                  beforeLineStyle: LineStyle(
-                    color: Colors.grey,
-                    thickness: 1,
-                  ),
-                  afterLineStyle: LineStyle(
-                    color: Colors.grey,
-                    thickness: 1,
-                  ),
-                  endChild: Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 70,
-                          width: 60,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(para.image),
-                              fit: BoxFit.fill,
-                            ),
+          ),
+          Column(
+              children: _parainfo.map((para) {
+            var index = (_parainfo.indexOf(para) + 1).toString();
+            return SizedBox(
+              child: TimelineTile(
+                axis: TimelineAxis.vertical,
+                alignment: TimelineAlign.start,
+                beforeLineStyle: LineStyle(
+                  color: Colors.grey,
+                  thickness: 1,
+                ),
+                afterLineStyle: LineStyle(
+                  color: Colors.grey,
+                  thickness: 1,
+                ),
+                endChild: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 70,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(para.image),
+                            fit: BoxFit.fill,
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 15),
-                            child: SizedBox(
-                              // width: 210,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      child: Text(
-                                        para.title,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 15),
+                          child: SizedBox(
+                            // width: 210,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Container(
+                                    child: Text(
+                                      para.title,
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 10),
+                                    child: Text(para.subTitle,
                                         style: TextStyle(
                                             fontSize: 15,
-                                            fontWeight: FontWeight.w500),
-                                        textAlign: TextAlign.start,
-                                      ),
-                                    ),
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.start),
                                   ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 10),
-                                      child: Text(para.subTitle,
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w400),
-                                          textAlign: TextAlign.start),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    child: para.addition != ''
-                                        ? Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 15),
-                                            child: Text(para.addition,
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                                textAlign: TextAlign.start),
-                                          )
-                                        : Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 15),
-                                            child: SizedBox(height: 0)),
-                                  ),
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  child: para.addition != ''
+                                      ? Padding(
+                                          padding:
+                                              EdgeInsets.only(bottom: 15),
+                                          child: Text(para.addition,
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight:
+                                                      FontWeight.w400),
+                                              textAlign: TextAlign.start),
+                                        )
+                                      : Padding(
+                                          padding:
+                                              EdgeInsets.only(bottom: 15),
+                                          child: SizedBox(height: 0)),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  isFirst: para.isFirst,
-                  isLast: para.isLast,
-                  indicatorStyle: IndicatorStyle(
-                    width: 30,
-                    height: 30,
-                    padding: EdgeInsets.symmetric(horizontal: 8),
-                    drawGap: true,
-                    indicator: Container(
-                        decoration: const BoxDecoration(
-                          border: Border.fromBorderSide(
-                            BorderSide(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            index,
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        )),
+                      ),
+                    ],
                   ),
                 ),
-              );
-            }).toList()),
-          ],
-        ),
+                isFirst: para.isFirst,
+                isLast: para.isLast,
+                indicatorStyle: IndicatorStyle(
+                  width: 30,
+                  height: 30,
+                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  drawGap: true,
+                  indicator: Container(
+                      decoration: const BoxDecoration(
+                        border: Border.fromBorderSide(
+                          BorderSide(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          index,
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )),
+                ),
+              ),
+            );
+          }).toList()),
+        ],
       ),
     );
   }
