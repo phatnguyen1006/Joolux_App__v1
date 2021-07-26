@@ -6,14 +6,14 @@ import 'package:flutter/painting.dart';
 
 import '../components/Common/item_card.dart';
 // const
-import '../../../constants/constants.dart';
+// import '../../../constants/constants.dart';
 
 class NewArrivalBody extends StatelessWidget {
   const NewArrivalBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return ListView(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
