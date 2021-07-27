@@ -29,7 +29,7 @@ class Auth with ChangeNotifier {
     notifyListeners();
   }
 
-  Future signIn() async {
+  Future signInGoogle() async {
     isLoading = true;
 
     final googleSignIn = GoogleSignIn();

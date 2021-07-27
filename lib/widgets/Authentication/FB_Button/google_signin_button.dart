@@ -6,7 +6,7 @@ import '../../../providers/auth.dart';
 class GoogleSigninButton extends StatelessWidget {
   const GoogleSigninButton({Key? key}) : super(key: key);
   Future<void> _signIn() async {
-    await Auth().signIn();
+    await Auth().signInGoogle();
   }
 
   @override
