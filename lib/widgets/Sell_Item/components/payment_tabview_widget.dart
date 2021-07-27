@@ -22,16 +22,14 @@ class _PaymentWidgetsState extends State<PaymentWidgets> {
       child: ListView(
         children: [
           Padding(
-            padding:
-                EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
+            padding: EdgeInsets.only(top: 15, bottom: 20),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 20),
+                  padding: EdgeInsets.only(bottom: 25),
                   child: Text(
                     "Payment Process",
-                    style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
                 ),
                 AnimateExpanded(),
@@ -116,9 +114,6 @@ class _AnimateExpandedState extends State<AnimateExpanded> {
                             ),
                           ),
                           AnimatedContainer(
-                              // constraints: BoxConstraints(
-                              //     minHeight: 0, maxHeight: double.infinity),
-                              // height: info.isExpanded ? 150 : 0,
                               width: size.width,
                               decoration: BoxDecoration(color: Colors.white),
                               duration: const Duration(milliseconds: 100),
@@ -136,12 +131,6 @@ class _AnimateExpandedState extends State<AnimateExpanded> {
                         ],
                       ),
                     ),
-
-                    // Container(
-                    //   height: 3,
-                    //   width: size.width,
-                    //   decoration: BoxDecoration(color: Color(0xFFECEFF1)),
-                    // )
                   ],
                 ))
             .toList());

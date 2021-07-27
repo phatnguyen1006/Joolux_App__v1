@@ -39,8 +39,7 @@ class _HowToSellState extends State<HowToSellTab> {
     ),
     ParaInfo(
       title: "4",
-      subTitle:
-          "The Luxury Closet is the most trusted online boutique for selling new and pre-loved luxury items. When you chosse to consign a luxurypiece with us",
+      subTitle: "The Luxury  items",
       addition: '',
       image: 'assets/cookiemint.jpg',
       isFirst: false,
@@ -63,18 +62,17 @@ class _HowToSellState extends State<HowToSellTab> {
                 children: [
                   Text(
                     "How To Sell With Us?",
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "IT IS EASY, FAST & HASSLE-FREE",
-                    style:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
             ),
           ),
+          //Timeline
           Column(
               children: _parainfo.map((para) {
             var index = (_parainfo.indexOf(para) + 1).toString();
@@ -95,7 +93,7 @@ class _HowToSellState extends State<HowToSellTab> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        height: 70,
+                        height: 80,
                         width: 60,
                         decoration: BoxDecoration(
                           image: DecorationImage(
@@ -108,48 +106,48 @@ class _HowToSellState extends State<HowToSellTab> {
                         child: Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: SizedBox(
-                            // width: 210,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Align(
                                   alignment: Alignment.topLeft,
-                                  child: Container(
-                                    child: Text(
-                                      para.title,
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                      textAlign: TextAlign.start,
-                                    ),
+                                  child: Text(
+                                    para.title,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 10),
-                                    child: Text(para.subTitle,
+                                    padding: EdgeInsets.symmetric(vertical: 10),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        para.subTitle,
                                         style: TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w400),
-                                        textAlign: TextAlign.start),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
                                   child: para.addition != ''
                                       ? Padding(
-                                          padding:
-                                              EdgeInsets.only(bottom: 15),
-                                          child: Text(para.addition,
+                                          padding: EdgeInsets.only(bottom: 15),
+                                          child: Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              para.addition,
                                               style: TextStyle(
                                                   fontSize: 15,
-                                                  fontWeight:
-                                                      FontWeight.w400),
-                                              textAlign: TextAlign.start),
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ),
                                         )
                                       : Padding(
-                                          padding:
-                                              EdgeInsets.only(bottom: 15),
+                                          padding: EdgeInsets.only(bottom: 15),
                                           child: SizedBox(height: 0)),
                                 ),
                               ],
@@ -179,7 +177,7 @@ class _HowToSellState extends State<HowToSellTab> {
                       child: Center(
                         child: Text(
                           index,
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 15),
                         ),
                       )),
                 ),
