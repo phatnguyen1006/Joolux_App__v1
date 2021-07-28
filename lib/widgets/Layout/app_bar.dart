@@ -1,4 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+// widgets
+import '../../UI/User/user_page.dart';
+// helpers
+import '../../helpers/middlewares/auth_middleware.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -16,7 +21,10 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: IconButton(
         icon: Icon(Icons.person_pin, color: Color(0xFF545D68)),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => AuthMiddleware(dest: UserPage())));
+        },
       ),
       title: Text(title ?? 'THE LUXURY CLOSET',
           style: TextStyle(

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+// _Firebase
+import '../../../providers/auth.dart';
 
 class FacebookSigninButton extends StatelessWidget {
   const FacebookSigninButton({Key? key}) : super(key: key);
+  Future<void> _signIn() async {
+    await Auth().signInWithFacebook();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +15,7 @@ class FacebookSigninButton extends StatelessWidget {
         height: 55,
         width: (MediaQuery.of(context).size.width / 2) - 20,
         child: OutlineButton.icon(
-          onPressed: () {},
+          onPressed: _signIn,
           icon: Image.asset(
             'assets/images/facebook_logo.png',
             fit: BoxFit.contain,

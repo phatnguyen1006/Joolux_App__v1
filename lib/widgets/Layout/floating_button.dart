@@ -17,7 +17,7 @@ class FloatingButton extends StatelessWidget {
           setPage(2);
         },
         backgroundColor: Colors.white,
-        child: Icon(Icons.money_off_outlined, color: Color(0xFF676E79)),
+        child: Icon(Icons.attach_money_outlined, color: Color(0xFF676E79)),
       ),
     );
   }

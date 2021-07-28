@@ -33,6 +33,7 @@ dependencies:
   firebase_core: ^1.4.0
   firebase_auth: ^3.0.1
   google_sign_in: ^5.0.5
+  flutter_facebook_auth: ^3.5.0
   firebase_messaging: ^10.0.4
   firebase_analytics: ^8.2.0
   timeline_tile: ^2.0.0
