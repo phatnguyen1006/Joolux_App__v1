@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+// widgets
+import '../../widgets/Authentication/auth_page_widgets.dart';
 // Routes to return
 import '../../app_screen.dart';
 // providers
@@ -10,20 +13,20 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
+  bool isAuth = Auth().isAuth;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(color: Colors.grey),
-        child: TextButton(
-          child: Text("Log In"),
-          onPressed: () {
-            Auth().logIn();
-            print(Auth().isAuth);
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => MyScreen(
-                      currentPage: 4,
-                    )));
-          },
-        ));
+    return isAuth
+        ? MyScreen(
+            currentPage: 0,
+          )
+        : Scaffold(
+            body: Container(
+                height: MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top,
+                decoration: BoxDecoration(color: Colors.white),
+                child: AuthPageWidget()),
+          );
   }
 }

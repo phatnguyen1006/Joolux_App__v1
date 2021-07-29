@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:joolux_demo/UI/Authentication/auth_page.dart';
+// widget
+import '../../UI/Authentication/auth_page.dart';
+import '../../app_screen.dart';
 // Auth_Helper_Middleware
+import '../../helpers/middlewares/auth_middleware.dart';
 // provider
 import '../../providers/auth.dart';
 // icon
@@ -76,9 +79,16 @@ class BottomBar extends StatelessWidget {
                       )),
                   Container(
                     height: double.infinity,
-                    padding: EdgeInsets.only(top: 40, bottom: 10),
-                    child: Text(
-                      'Sell Item',
+                    child: InkWell(
+                      onTap: () {
+                        setPage(2);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.only(top: 40, bottom: 10),
+                        child: Text(
+                          'Sell Item',
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -115,7 +125,11 @@ class BottomBar extends StatelessWidget {
                                   if (!isAuth) {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => AuthPage()));
+                                            builder: (context) =>
+                                                AuthMiddleware(
+                                                    dest: MyScreen(
+                                                  currentPage: 4,
+                                                ))));
                                     return;
                                   }
                                   setPage(4);
