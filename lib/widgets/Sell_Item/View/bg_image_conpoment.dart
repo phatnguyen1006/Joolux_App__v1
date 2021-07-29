@@ -208,11 +208,10 @@ void _showModalDialog(BuildContext context) {
               height: 170,
               child: Padding(
                 padding: EdgeInsets.all(10),
-                child: Column(
+                child: ListView(
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text("• "),
                         Expanded(
@@ -228,7 +227,6 @@ void _showModalDialog(BuildContext context) {
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text("• "),
                         Expanded(
@@ -244,7 +242,6 @@ void _showModalDialog(BuildContext context) {
                     ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         Text(
                           "• ",

@@ -12,15 +12,68 @@ class SellItemWidgets extends StatefulWidget {
 
 class _SellItemWidgetsState extends State<SellItemWidgets>
     with SingleTickerProviderStateMixin {
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      children: [
-        BgImageContent(),
-        TabViewWidgets(),
-      ],
+    return NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          SliverToBoxAdapter(child: BgImageContent()),
+        ];
+      },
+      body: TabViewWidgets(),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//=======================================================
+
+// class SellItemWidgets extends StatefulWidget {
+//   @override
+//   _SellItemWidgetsState createState() => _SellItemWidgetsState();
+// }
+//
+// class _SellItemWidgetsState extends State<SellItemWidgets>
+//     with SingleTickerProviderStateMixin {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView(
+//       //scrollDirection: Axis.vertical,
+//       //shrinkWrap: true,
+//       primary: true,
+//       children: [
+//         BgImageContent(),
+//         TabViewWidgets(),
+//       ],
+//     );
+//   }
+// }

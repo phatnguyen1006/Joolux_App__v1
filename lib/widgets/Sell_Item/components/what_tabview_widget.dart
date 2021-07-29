@@ -21,28 +21,23 @@ class _WhatWidgetsState extends State<WhatWidgets> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 35),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+      child: ListView(
+        physics: NeverScrollableScrollPhysics(),
         children: [
-          Expanded(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "What Can You Sell?",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                    ),
+          Padding(
+            padding: EdgeInsets.only(top: 15, bottom: 20),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 25),
+                  child: Text(
+                    "What Can You Sell?",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
-                  AnimateExpanded(),
-                ],
-              ),
+                ),
+                AnimateExpanded(),
+              ],
             ),
           ),
         ],
@@ -125,9 +120,6 @@ class _AnimateExpandedState extends State<AnimateExpanded> {
                             ),
                           ),
                           AnimatedContainer(
-                            // constraints: BoxConstraints(
-                            //     minHeight: 0, maxHeight: double.infinity),
-                            // height: info.isExpanded ? 150 : 0,
                             width: size.width,
                             decoration: BoxDecoration(color: Colors.white),
                             duration: const Duration(milliseconds: 100),

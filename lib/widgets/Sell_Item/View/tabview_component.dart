@@ -13,21 +13,16 @@ class TabViewWidgets extends StatefulWidget {
 
 class _TabViewWidgetsState extends State<TabViewWidgets>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-  @override
-  void initState() {
-    _tabController = new TabController(length: 4, vsync: this);
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return DefaultTabController(
       length: 4,
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 0),
+          Container(
+            height: 50,
+            width: size.width,
             child: TabBar(
               tabs: [
                 Tab(text: 'HOW'),
@@ -35,24 +30,24 @@ class _TabViewWidgetsState extends State<TabViewWidgets>
                 Tab(text: 'WHAT'),
                 Tab(text: 'PAYMENT'),
               ],
-              controller: _tabController,
               indicatorColor: Colors.black,
               isScrollable: false,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey.shade500,
             ),
           ),
-          Container(
-            color: Colors.grey.shade300,
-            height: 1550,
-            child: TabBarView(
-              children: [
-                HowWidgets(),
-                WhyWidgets(),
-                WhatWidgets(),
-                PaymentWidgets(),
-              ],
-              controller: _tabController,
+          Flexible(
+            fit: FlexFit.tight,
+            child: Container(
+              color: Colors.grey.shade300,
+              child: TabBarView(
+                children: [
+                  HowWidgets(),
+                  WhyWidgets(),
+                  WhatWidgets(),
+                  PaymentWidgets(),
+                ],
+              ),
             ),
           ),
         ],
