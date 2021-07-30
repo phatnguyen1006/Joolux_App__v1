@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>784926822518-vvkntqn33ahb5afee68lueihnrlbqfkm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.784926822518-vvkntqn33ahb5afee68lueihnrlbqfkm</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>784926822518-2cmfrglcfaerhdjhiic9nu92rrj21a40.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCeiNIdu4Tp8qJVxx7FWS8rIR_Lr4zMPgE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>784926822518</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.jooluxDemo</string>
+	<key>PROJECT_ID</key>
+	<string>joolux-efac2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>joolux-efac2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:784926822518:ios:e938779afb536266b64f57</string>
+</dict>
+</plist>

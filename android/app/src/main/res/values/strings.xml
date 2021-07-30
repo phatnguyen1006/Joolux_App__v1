@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">JooLux_App</string>
+  <string name="facebook_app_id">229059552406834</string>
+  <string name="fb_login_protocol_scheme">fb229059552406834</string>
+</resources>

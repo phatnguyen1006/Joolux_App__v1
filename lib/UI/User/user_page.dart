@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// widgets
+import '../../widgets/User/user_page_widgets.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({Key? key}) : super(key: key);
@@ -10,8 +12,6 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.red),
-    );
+    return UserPageWidget();
   }
 }
