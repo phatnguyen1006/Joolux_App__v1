@@ -59,8 +59,7 @@ class WomenTabPage extends StatelessWidget {
       primary: true,
       children: productWomenTypes.map(
         (productType) =>  GestureDetector(
-          onTap: () => Navigator.push(
-              context,
+          onTap: () => Navigator.of(context, rootNavigator: true).push(
               MaterialPageRoute(
                 builder: (context) =>
                 productType.directToChooseProductTypePage ? ChooseProductTypes(productType: productType,) : ChooseProductTypes(productType: productType,),
