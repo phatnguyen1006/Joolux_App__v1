@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Components Widget
 import '../../../models/products/products.dart';
-import '../../../widgets/Home/components/Common/item_card.dart';
+import '../../Layout/Views/grid_view_products.dart';
 
 import '../details_page.dart';
 

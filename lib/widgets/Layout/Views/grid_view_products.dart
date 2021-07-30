@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/models/icons/icons.dart';
-import '../../../../models/products/products.dart';
+import '../../../models/products/products.dart';
 
-import '../../../../constants/constants.dart';
-import '../../../product_details_page/details_page.dart';
+import '../../../constants/constants.dart';
+import '../../product_details_page/details_page.dart';
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({Key? key}) : super(key: key);

@@ -12,7 +12,7 @@ import '../components/Others/for_people.dart';
 import '../../../models/products/poster.dart';
 import '../../../models/products/products.dart';
 import '../../../models/products/sale_off.dart';
-import 'package:joolux_demo/widgets/Home/components/Common/list_view_products.dart';
+import 'package:joolux_demo/widgets/Layout/Views/list_view_products.dart';
 
 // const
 import '../../../constants/constants.dart';

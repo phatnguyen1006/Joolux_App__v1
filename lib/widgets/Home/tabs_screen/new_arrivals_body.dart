@@ -4,7 +4,7 @@ import 'package:flutter/painting.dart';
 
 // widgets
 
-import '../components/Common/item_card.dart';
+import '../../Layout/Views/grid_view_products.dart';
 // const
 // import '../../../constants/constants.dart';
 
