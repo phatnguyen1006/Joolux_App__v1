@@ -12,6 +12,7 @@ import 'Others/policy_info_product.dart';
 import '../../models/products/poster.dart';
 import '../../widgets/Home/components/Common/posters.dart';
 import 'Others/similar_recently_products.dart';
+import '../Checkout/Address.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;
@@ -61,9 +62,12 @@ class DetailsScreen extends StatelessWidget {
                       border: Border.all(),
                       borderRadius: BorderRadius.circular(4)),
                   child: TextButton(
-                      onPressed: () {
-                        print("BUY NOW");
-                      },
+                      onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Address(),
+                            ),
+                          ),
                       child: Text("BUY NOW",
                           style: TextStyle(color: Colors.black))),
                 ),
@@ -107,11 +111,10 @@ class ProductState extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xFFECEFF1)
-              ),
+              decoration: BoxDecoration(color: Color(0xFFECEFF1)),
               child: Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+                padding: const EdgeInsets.only(
+                    left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
                 child: Text("WELL USED"),
               ),
             ),
@@ -120,20 +123,17 @@ class ProductState extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-                Icon(
-                    Icons.check_circle_outline,
-                    color: Colors.grey,
+              Icon(
+                Icons.check_circle_outline,
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0, right: 8.0),
+                child: Text(
+                  "100% Authentic",
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 4.0, right: 8.0),
-                  child: Text(
-                      "100% Authentic",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey
-                      ),
-                  ),
-                )
+              )
             ],
           )
         ],

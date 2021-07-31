@@ -51,16 +51,16 @@ class _WhyWidgetsState extends State<WhyWidgets> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           Padding(
-            padding:
-            EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
+            padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: 20),
                   child: Text(
                     "Why Choose Us!",
-                    style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Text(
@@ -87,6 +87,8 @@ class _WhyWidgetsState extends State<WhyWidgets> {
                         padding: EdgeInsets.only(
                             top: 15, left: 10, right: 10, bottom: 20),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             reason.icon,
                             Padding(

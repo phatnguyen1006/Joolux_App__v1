@@ -39,7 +39,8 @@ class _HowToSellState extends State<HowToSellTab> {
     ),
     ParaInfo(
       title: "4",
-      subTitle: "The Luxury  items",
+      subTitle:
+          "The Luxury  items is the most trusted online boutique for selling new and pre-loved luxury items. When you chosse to consign a luxurypiece with us",
       addition: '',
       image: 'assets/cookiemint.jpg',
       isFirst: false,
@@ -50,26 +51,25 @@ class _HowToSellState extends State<HowToSellTab> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 7, right: 9, top: 20),
+      padding: const EdgeInsets.only(left: 7, right: 9, top: 20, bottom: 30),
       child: ListView(
         physics: NeverScrollableScrollPhysics(),
         children: [
           Padding(
             padding: EdgeInsets.only(top: 10, bottom: 30),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "How To Sell With Us?",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "IT IS EASY, FAST & HASSLE-FREE",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "How To Sell With Us?",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "IT IS EASY, FAST & HASSLE-FREE",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+              ],
             ),
           ),
           //Timeline
@@ -90,7 +90,7 @@ class _HowToSellState extends State<HowToSellTab> {
                 ),
                 endChild: Container(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         height: 80,
@@ -107,28 +107,23 @@ class _HowToSellState extends State<HowToSellTab> {
                           padding: EdgeInsets.only(left: 15),
                           child: SizedBox(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    para.title,
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500),
-                                  ),
+                                Text(
+                                  para.title,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(vertical: 10),
-                                    child: Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(
-                                        para.subTitle,
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w400),
-                                      ),
+                                    child: Text(
+                                      para.subTitle,
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400),
                                     ),
                                   ),
                                 ),
@@ -136,14 +131,11 @@ class _HowToSellState extends State<HowToSellTab> {
                                   child: para.addition != ''
                                       ? Padding(
                                           padding: EdgeInsets.only(bottom: 15),
-                                          child: Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              para.addition,
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
+                                          child: Text(
+                                            para.addition,
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w400),
                                           ),
                                         )
                                       : Padding(

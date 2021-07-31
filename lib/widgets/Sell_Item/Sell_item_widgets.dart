@@ -51,29 +51,3 @@ class _SellItemWidgetsState extends State<SellItemWidgets>
 
 
 
-
-
-
-
-//=======================================================
-
-// class SellItemWidgets extends StatefulWidget {
-//   @override
-//   _SellItemWidgetsState createState() => _SellItemWidgetsState();
-// }
-//
-// class _SellItemWidgetsState extends State<SellItemWidgets>
-//     with SingleTickerProviderStateMixin {
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView(
-//       //scrollDirection: Axis.vertical,
-//       //shrinkWrap: true,
-//       primary: true,
-//       children: [
-//         BgImageContent(),
-//         TabViewWidgets(),
-//       ],
-//     );
-//   }
-// }
