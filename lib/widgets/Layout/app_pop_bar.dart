@@ -32,7 +32,7 @@ AppBar appPopBar(BuildContext context, String title) {
         icon: SvgPicture.asset("assets/icons/search.svg",
             color: Color(0xFF545D68)),
         onPressed: () {
-          showSearch(context: context, delegate: SearchPage());
+          showSearch(context: context, delegate: SearchPage(), useRootNavigator: true);
         }
       ),
       IconButton(

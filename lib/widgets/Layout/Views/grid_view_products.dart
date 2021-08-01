@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:joolux_demo/models/icons/icons.dart';
-import '../../../models/products/products.dart';
 
-import '../../../constants/constants.dart';
-import '../../product_details_page/details_page.dart';
+
+// Components
+import '../../../models/icons/icons.dart';
+import '../../../widgets/WishList/fakeList.dart';
+import '../../../widgets/product_details_page/details_page.dart';
+import '../../../models/products/products.dart';
+import '../../../../constants/constants.dart';
+
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({Key? key}) : super(key: key);
@@ -99,7 +103,13 @@ class ItemCard extends StatelessWidget {
                               icon: Icon(MyIcon.heart),
                               color: Color(0xFF676E79),
                               onPressed: () {
-                                print("Clicked");
+                                wishList_fake.add(FakeList(
+                                  title:
+                                      "Chanel Green Quilted Patent\nLeather Jumbo Classic Double Flag Bag",
+                                  image: "assets/images/bag_3.png",
+                                  condition: "Like New",
+                                  price: 1234,
+                                ));
                               },
                             ),
                           ],

@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+
 // widgets
 import '../../UI/User/user_page.dart';
+import '../../../widgets/Layout/search_page_app_bar.dart';
 // helpers
 import '../../helpers/middlewares/auth_middleware.dart';
 
@@ -34,7 +37,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.search, color: Color(0xFF545D68)),
-          onPressed: () {},
+          onPressed: () {
+            showSearch(context: context, delegate: SearchPage(), useRootNavigator: true);
+          },
         ),
         IconButton(
           icon: Icon(Icons.shopping_cart_outlined, color: Color(0xFF545D68)),
