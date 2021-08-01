@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'product_types_interface.dart';
+import '../../../models/products/product_types_interface.dart';
 import '../../../widgets/Layout/app_pop_bar.dart';
 
 class ChooseProductTypes extends StatelessWidget {

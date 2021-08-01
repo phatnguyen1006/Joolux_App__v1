@@ -54,7 +54,7 @@ List<Product> products = [
       title: "Office Code",
       price: 234,
       size: 12,
-      description: dummyText,
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
       image: "assets/images/bag_5.png",
       color: const Color(0xFFFB7883)),
   Product(
@@ -62,7 +62,7 @@ List<Product> products = [
     title: "Office Code",
     price: 234,
     size: 12,
-    description: dummyText,
+    description: "Lorem Ipsum is simply dummy text of the printing and sadassa",
     image: "assets/images/bag_6.png",
     color: const Color(0xFFAEAEAE),
   ),

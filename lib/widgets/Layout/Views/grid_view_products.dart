@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:joolux_demo/models/icons/icons.dart';
-import '../../../../models/products/products.dart';
+import '../../../models/products/products.dart';
 
-import '../../../../constants/constants.dart';
-import '../../../product_details_page/details_page.dart';
+import '../../../constants/constants.dart';
+import '../../product_details_page/details_page.dart';
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class ProductGridView extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: DefaultPadding / 5,
             crossAxisSpacing: DefaultPadding,
-            childAspectRatio: 0.45,
+            childAspectRatio: 0.5,
           ),
           itemBuilder: (context, index) => ItemCard(
                 product: products[index],
@@ -119,21 +119,33 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          const Text(
-            "Chanel",
-            textAlign: TextAlign.left,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const Text(
-              "Chanel Green Quilted Patent\nLeather Jumbo Classic Double Flag Bag"),
-          Text("Est. Retail\$${product.price}"),
-          const Text(
-            "\$4.503 40% off",
-            style: TextStyle(decoration: TextDecoration.lineThrough),
-          ),
-          const Text(
-            "\$3.003 EXTRA 33% off",
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+          Container(
+            height: size.width/3  - 20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Chanel",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  product.description,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                ),
+                Text("Est. Retail\$${product.price}"),
+                const Text(
+                  "\$4.503 40% off",
+                  style: TextStyle(decoration: TextDecoration.lineThrough),
+                ),
+                const Text(
+                  "\$3.003 EXTRA 33% off",
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                ),
+              ],
+            ),
           ),
           wishList
               ? Padding(

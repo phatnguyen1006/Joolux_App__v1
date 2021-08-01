@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Temp import
 import 'package:joolux_demo/models/products/products.dart';
-import 'package:joolux_demo/widgets/Home/components/Common/item_card.dart';
+import 'package:joolux_demo/widgets/Layout/Views/grid_view_products.dart';
 import 'package:joolux_demo/widgets/Home/components/cookie_page.dart';
 import 'RecentSearches.dart';
 

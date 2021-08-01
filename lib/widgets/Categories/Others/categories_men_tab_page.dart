@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 import 'categories_choose_product_type_page.dart';
-import 'product_types_interface.dart';
+import '../../../models/products/product_types_interface.dart';
 
 
 List<ProductType> productMenTypes = [

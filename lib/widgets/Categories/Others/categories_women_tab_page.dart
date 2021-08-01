@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-import 'product_types_interface.dart';
+import '../../../models/products/product_types_interface.dart';
 import 'categories_choose_product_type_page.dart';
 
 
@@ -59,8 +59,7 @@ class WomenTabPage extends StatelessWidget {
       primary: true,
       children: productWomenTypes.map(
         (productType) =>  GestureDetector(
-          onTap: () => Navigator.push(
-              context,
+          onTap: () => Navigator.of(context, rootNavigator: true).push(
               MaterialPageRoute(
                 builder: (context) =>
                 productType.directToChooseProductTypePage ? ChooseProductTypes(productType: productType,) : ChooseProductTypes(productType: productType,),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 
-import 'Others/categories_tab_pages.dart';
+// Components
+import '../../widgets/Categories/Others/categories_tab_pages.dart';
+
+
 
 
 class CategoriesPage extends StatefulWidget {

@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
-import '../../../models/products/poster.dart';
-import '../../../models/products/products.dart';
-import '../../../models/products/sale_off.dart';
+
 // widgets
 import '../components/Common/footer.dart';
-import '../components/Common/item_card.dart';
 import '../components/Common/image_card.dart';
 import '../components/Common/posters.dart';
 import '../components/Common/sale_off_grid.dart';
 import '../components/Common/swiper.dart';
 import '../components/Others/for_people.dart';
+import '../../../models/products/poster.dart';
+import '../../../models/products/products.dart';
+import '../../../models/products/sale_off.dart';
+import 'package:joolux_demo/widgets/Layout/Views/list_view_products.dart';
+
 // const
 import '../../../constants/constants.dart';
 
@@ -62,7 +64,8 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-        ProductGridView(),
+        //ProductGridView(),
+        ProductListView(),
         Footer(size: size),
       ],
     );
