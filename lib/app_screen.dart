@@ -56,9 +56,10 @@ class _MyScreenState extends State<MyScreen> {
       ],
       child: Consumer<Auth>(
         builder: (context, auth, _) => Scaffold(
-          appBar: Header(),
+          appBar: Header(currentPage: widget.currentPage),
           body: Container(child: _routeList.elementAt(widget.currentPage)),
-          floatingActionButton: FloatingButton(setPage: _setPage),
+          floatingActionButton: FloatingButton(
+              currentPage: widget.currentPage, setPage: _setPage),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar:

@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class FloatingButton extends StatelessWidget {
   final Function setPage;
+  final int currentPage;
 
-  FloatingButton({required this.setPage});
+  FloatingButton({required this.currentPage, required this.setPage});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,8 @@ class FloatingButton extends StatelessWidget {
           setPage(2);
         },
         backgroundColor: Colors.white,
-        child: Icon(Icons.attach_money_outlined, color: Color(0xFF676E79)),
+        child: Icon(Icons.attach_money_outlined,
+            color: currentPage == 2 ? Colors.black : Color(0xFF676E79)),
       ),
     );
   }

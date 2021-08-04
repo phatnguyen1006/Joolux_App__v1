@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // widget
-import '../../UI/Authentication/auth_page.dart';
 import '../../app_screen.dart';
 // Auth_Helper_Middleware
 import '../../helpers/middlewares/auth_middleware.dart';
@@ -79,7 +78,7 @@ class BottomBar extends StatelessWidget {
                                           setPage(1);
                                         },
                                         child: Column(children: [
-                                          Icon(Icons.person_outline,
+                                          Icon(Icons.layers_rounded,
                                               color: currentPage == 1
                                                   ? Colors.black
                                                   : Colors.grey[400]),
