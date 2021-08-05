@@ -22,6 +22,7 @@ class BgImageContent extends StatelessWidget {
         margin: EdgeInsets.only(top: 40, right: 0, bottom: 30, left: 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
             SizedBox(
@@ -53,7 +54,7 @@ class BgImageContent extends StatelessWidget {
                 padding: EdgeInsets.only(top: 20),
                 child: Text(
                   "Earn Back 100% When You Sell Your First Item!",
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,
@@ -131,19 +132,15 @@ class BgImageContent extends StatelessWidget {
                   height: 50,
                   width: size.width,
                   color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Sell On Your Own',
-                        style: TextStyle(
-                          height: 1,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
+                  child: Center(
+                    child: Text(
+                      'Sell On Your Own',
+                      style: TextStyle(
+                        height: 1,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 onTap: () {

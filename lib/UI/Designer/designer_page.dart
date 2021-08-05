@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/WishList/wish_list_widget.dart';
 
 class DesignerPage extends StatefulWidget {
   @override
@@ -8,8 +9,6 @@ class DesignerPage extends StatefulWidget {
 class _DesignerPageState extends State<DesignerPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.blue),
-    );
+    return WishListWidgets();
   }
 }

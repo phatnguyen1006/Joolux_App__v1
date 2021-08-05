@@ -51,7 +51,7 @@ class _PremiumState extends State<PremiumTab> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 7, right: 9, top: 20),
+      padding: const EdgeInsets.only(left: 7, right: 9, top: 20, bottom: 30),
       child: ListView(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
@@ -74,7 +74,7 @@ class _PremiumState extends State<PremiumTab> {
                 // right content
                 endChild: Container(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         height: 80,
@@ -91,30 +91,25 @@ class _PremiumState extends State<PremiumTab> {
                           padding: EdgeInsets.only(left: 15),
                           child: SizedBox(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Container(
-                                    child: Text(
-                                      para.title,
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500),
-                                    ),
+                                Container(
+                                  child: Text(
+                                    para.title,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                 ),
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(vertical: 10),
-                                    child: Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(
-                                        para.subTitle,
-                                        style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w400),
-                                      ),
+                                    child: Text(
+                                      para.subTitle,
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400),
                                     ),
                                   ),
                                 ),
@@ -122,14 +117,11 @@ class _PremiumState extends State<PremiumTab> {
                                   child: para.addition != ''
                                       ? Padding(
                                           padding: EdgeInsets.only(bottom: 15),
-                                          child: Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              para.addition,
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
+                                          child: Text(
+                                            para.addition,
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w400),
                                           ),
                                         )
                                       : Padding(
