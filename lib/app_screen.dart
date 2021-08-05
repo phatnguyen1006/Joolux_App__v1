@@ -13,7 +13,7 @@ import './widgets/Layout/bottom_bar.dart';
 import './widgets/Layout/floating_button.dart';
 import './widgets/Layout/app_bar.dart';
 // provider
-import './providers/auth.dart';
+import 'providers/authentication/auth.dart';
 
 // ignore: must_be_immutable
 class MyScreen extends StatefulWidget {
@@ -56,9 +56,10 @@ class _MyScreenState extends State<MyScreen> {
       ],
       child: Consumer<Auth>(
         builder: (context, auth, _) => Scaffold(
-          appBar: Header(),
+          appBar: Header(currentPage: widget.currentPage),
           body: Container(child: _routeList.elementAt(widget.currentPage)),
-          floatingActionButton: FloatingButton(setPage: _setPage),
+          floatingActionButton: FloatingButton(
+              currentPage: widget.currentPage, setPage: _setPage),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar:

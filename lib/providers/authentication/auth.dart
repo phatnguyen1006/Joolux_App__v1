@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:localstorage/localstorage.dart';
+// callback
+import './_basicAuth.dart' as basicAuth;
 
 class Auth with ChangeNotifier {
   static bool _isAuth = false;
   late bool _isLoading;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final User? _user = FirebaseAuth.instance.currentUser;
+  // init localStorage
+  final LocalStorage storage = new LocalStorage('joolux_app');
 
   Auth() {
     if (_firebaseAuth.currentUser != null) {
@@ -35,6 +40,19 @@ class Auth with ChangeNotifier {
     notifyListeners();
   }
 
+  // store into LocalStorage
+  Future<void> _setStorage(String? accessToken,
+      {String refreshToken = ''}) async {
+    await storage.setItem('accessToken', accessToken);
+    await storage.setItem('refreshToken', refreshToken);
+  }
+
+  // clear LocalStorage
+  Future<void> _clearStorage() async {
+    // await storage.deleteItem();
+    await storage.clear();
+  }
+
   Future signInGoogle() async {
     isLoading = true;
 
@@ -50,6 +68,7 @@ class Auth with ChangeNotifier {
 
         isLoading = false;
         isAuth = true;
+        await _setStorage(googleAuth.accessToken);
         return userCredential.user;
       }
     } else {
@@ -61,45 +80,6 @@ class Auth with ChangeNotifier {
     }
   }
 
-  // Future signInFacebook() async {
-  //   isLoading = true;
-  //   FacebookLogin facebookLogin = FacebookLogin();
-
-  //   final result = await facebookLogin.logIn(['email']);
-  //   final token = result.accessToken.token;
-  //   // final graphResponse = await http.get(
-  //   //     'https://graph.facebook.com/v2.12/me?fields=name,first_name,last_name&access_token=${token}');
-  //   // print(graphResponse.body);
-  //   if (result.status == FacebookLoginStatus.loggedIn) {
-  //     final userCredential = await _firebaseAuth.signInWithCredential(
-  //       FacebookAuthProvider.credential(token),
-  //     );
-
-  //     isLoading = false;
-  //     isAuth = true;
-  //     print(userCredential.user);
-  //     return userCredential.user;
-  //   } else if (result.status == FacebookLoginStatus.cancelledByUser) {
-  //     isLoading = false;
-  //     throw FirebaseAuthException(
-  //       message: "Sign in aborted by user",
-  //       code: "ERROR_ABORDER_BY_USER",
-  //     );
-  //   } else if (result.status == FacebookLoginStatus.error) {
-  //     isLoading = false;
-  //     throw FirebaseAuthException(
-  //       message: result.errorMessage,
-  //       code: "ERROR_ABORDER_BY_USER",
-  //     );
-  //   } else {
-  //     isLoading = false;
-  //     throw FirebaseAuthException(
-  //       message: "Failed to Login by Facebook",
-  //       code: "ERROR_ABORDER_BY_USER",
-  //     );
-  //   }
-  // }
-
   Future<UserCredential?> signInWithFacebook() async {
     final LoginResult result = await FacebookAuth.instance.login();
     if (result.status == LoginStatus.success) {
@@ -107,6 +87,7 @@ class Auth with ChangeNotifier {
       final OAuthCredential credential =
           FacebookAuthProvider.credential(result.accessToken!.token);
       // Once signed in, return the UserCredential
+      await _setStorage(result.accessToken!.token);
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } else if (result.status == LoginStatus.cancelled) {
       isLoading = false;
@@ -129,6 +110,51 @@ class Auth with ChangeNotifier {
     }
   }
 
+  // original Sign In And SignUp
+  Future<void> signIn(data) async {
+    // data = {
+    //   username: 'admin',
+    //   password: 'admin123',
+    // }
+
+    Map<String, dynamic> response = await basicAuth.originalSignIn(data);
+    if (response != null) {
+      // accessToken && refreshToken
+      await _setStorage(response['accessToken'],
+          refreshToken: response['refreshToken']);
+      var a = storage.getItem('accessToken');
+      print(a);
+    } else {
+      throw {
+        'message': 'Something went wrong!!!',
+        'status': 400,
+      };
+    }
+  }
+
+  Future<void> signUp(data) async {
+    // data = {
+    //   username: 'admin',
+    //   password: 'admin123',
+    //   fullname: I Am admin,
+    //   email: client2@test.com,
+    //   phoneNumber: 0123456727,
+    // }
+
+    Map<String, dynamic> response = await basicAuth.originalSignUp(data);
+    if (response != null) {
+      // accessToken && refreshToken
+      await _setStorage(response['accessToken'],
+          refreshToken: response['refreshToken']);
+    } else {
+      throw {
+        'message': 'Something went wrong!!!',
+        'status': 400,
+      };
+    }
+  }
+  // ---
+
   Future<void> signOut() async {
     isAuth = false;
     final googleSignIn = GoogleSignIn();
@@ -137,5 +163,6 @@ class Auth with ChangeNotifier {
     // await googleSignIn.disconnect();
     await facebookLogin.logOut();
     await _firebaseAuth.signOut();
+    await _clearStorage();
   }
 }

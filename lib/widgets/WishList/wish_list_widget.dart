@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 
 // widgets
-import './fakeList.dart';
+import '../../models/WishList/fakeList.dart';
 import './Components/empty_wishlist.dart';
 import './Components/list_item_wishlist.dart';
 import './Components/button_wishlist.dart';

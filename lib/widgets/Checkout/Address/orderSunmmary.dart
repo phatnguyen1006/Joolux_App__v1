@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //Widgets
-import '../../WishList/fakeList.dart';
+import '../../../models/WishList/fakeList.dart';
 import '../../WishList/Components/list_item_wishlist.dart';
 
 class OrderSummary extends StatefulWidget {

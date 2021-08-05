@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // proxyChange
-import '../../providers/auth.dart';
+import '../../providers/authentication/auth.dart';
 // return when logout
 import '../../app_screen.dart';
 
