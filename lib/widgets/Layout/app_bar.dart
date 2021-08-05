@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 // widgets
 import '../../UI/User/user_page.dart';
 import '../../../widgets/Layout/search_page_app_bar.dart';
@@ -40,7 +39,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: Icon(Icons.search, color: Color(0xFF545D68)),
           onPressed: () {
-            showSearch(context: context, delegate: SearchPage(), useRootNavigator: true);
+            showSearch(context: context, delegate: SearchPage());
           },
         ),
         IconButton(
