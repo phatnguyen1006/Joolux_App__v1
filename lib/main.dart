@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 // HomePage Screen
 import './app_screen.dart';
 
@@ -11,6 +11,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  await dotenv.load(fileName: ".env");
   return runApp(MyApp());
 }
 

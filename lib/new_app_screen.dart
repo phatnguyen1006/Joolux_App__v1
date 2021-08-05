@@ -11,7 +11,7 @@ import './widgets/Layout/bottom_navigation_bar.dart';
 import './widgets/Layout/floating_button.dart';
 import './widgets/Layout/app_bar.dart';
 // provider
-import './providers/auth.dart';
+import 'providers/authentication/auth.dart';
 
 class AppScreen extends StatefulWidget {
   @override

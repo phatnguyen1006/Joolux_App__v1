@@ -30,7 +30,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               builder: (context) => AuthMiddleware(dest: UserPage())));
         },
       ),
-      title: Text(titleList[currentPage] ?? 'THE LUXURY CLOSET',
+      title: Text(titleList[currentPage],
           style: TextStyle(
               fontFamily: 'Playfair Display',
               fontSize: 20.0,

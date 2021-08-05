@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 // provider
-import '../../providers/auth.dart';
+import '../../providers/authentication/auth.dart';
 // widget
 import '../../UI/Authentication/auth_page.dart';
 

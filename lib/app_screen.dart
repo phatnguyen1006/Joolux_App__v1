@@ -13,7 +13,7 @@ import './widgets/Layout/bottom_bar.dart';
 import './widgets/Layout/floating_button.dart';
 import './widgets/Layout/app_bar.dart';
 // provider
-import './providers/auth.dart';
+import 'providers/authentication/auth.dart';
 
 // ignore: must_be_immutable
 class MyScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // _Firebase
-import '../../../providers/auth.dart';
+import '../../../providers/authentication/auth.dart';
 
 class GoogleSigninButton extends StatelessWidget {
   const GoogleSigninButton({Key? key}) : super(key: key);

@@ -7,7 +7,7 @@ import '../../app_screen.dart';
 // Auth_Helper_Middleware
 import '../../helpers/middlewares/auth_middleware.dart';
 // provider
-import '../../providers/auth.dart';
+import '../../providers/authentication/auth.dart';
 // icon
 import '../../models/icons/icons.dart';
 
