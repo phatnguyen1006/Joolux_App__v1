@@ -4,14 +4,14 @@ import '../../models/tabbar_interface.dart';
 
 class HomeTabBar extends StatelessWidget {
   final List<TabBarInterface> _tabList = [
-    TabBarInterface(image: "assets/discover.jpg", title: 'DISCOVER'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'WOMEN'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'MEN'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'NEW ARRIVALS'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'SALE'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'WATCHES'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'DESIGNERS'),
-    TabBarInterface(image: "assets/discover.jpg", title: 'HOME'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'DISCOVER'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'WOMEN'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'MEN'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'NEW ARRIVALS'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'SALE'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'WATCHES'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'DESIGNERS'),
+    TabBarInterface(image: "assets/luxury.jpg", title: 'HOME'),
   ];
 
   final TabController _tabController;
@@ -39,8 +39,13 @@ class HomeTabBar extends StatelessWidget {
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    image: DecorationImage(image: AssetImage(tab.image))),
+                    borderRadius: BorderRadius.all(Radius.circular(40), ),
+                    border: Border.all(width: 1.0, color: Color(0xFFCDCDCD)),
+                    image: DecorationImage(
+                        image: AssetImage(tab.image),
+                        fit: BoxFit.fill
+                    )
+                ),
               ),
               Container(
                 height: 25,

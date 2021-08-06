@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
 
+
 // widgets
 import '../components/Common/footer.dart';
 import '../components/Common/image_card.dart';
@@ -12,6 +13,7 @@ import '../components/Others/for_people.dart';
 import '../../../models/products/poster.dart';
 import '../../../models/products/products.dart';
 import '../../../models/products/sale_off.dart';
+import '../../../widgets/Layout/Views/grid_view_products.dart';
 import 'package:joolux_demo/widgets/Layout/Views/list_view_products.dart';
 
 // const
@@ -64,8 +66,8 @@ class DiscoveryBody extends StatelessWidget {
             ),
           ),
         ),
-        //ProductGridView(),
-        ProductListView(),
+        ProductGridView(),
+        //ProductListView(),
         Footer(size: size),
       ],
     );
