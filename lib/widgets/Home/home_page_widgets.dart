@@ -4,11 +4,11 @@ import './tabs_screen/discovery_body.dart';
 import './tabs_screen/women_body.dart';
 import './tabs_screen/new_arrivals_body.dart';
 import './tabs_screen/sale_body.dart';
+import './tabs_screen/designers_body.dart';
 import './tabs_screen/watch_body.dart';
 
 // Widgets
 import './home_tab_bar.dart';
-import 'components/cookie_page.dart';
 
 class HomePageWidgets extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _HomePageWidgetsState extends State<HomePageWidgets>
                 NewArrivalBody(),
                 SaleBody(),
                 WatchBody(),
-                CookiePage(),
+                DesignerBody(),
                 NewArrivalBody(),
               ])),
         )

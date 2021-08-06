@@ -5,7 +5,7 @@ import '../../widgets/Authentication/auth_page_widgets.dart';
 // Routes to return
 import '../../app_screen.dart';
 // providers
-import '../../providers/auth.dart';
+import '../../providers/authentication/auth.dart';
 
 class AuthPage extends StatefulWidget {
   @override

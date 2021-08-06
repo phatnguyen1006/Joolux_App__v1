@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // widgets
@@ -6,11 +5,14 @@ import '../../UI/User/user_page.dart';
 import '../../../widgets/Layout/search_page_app_bar.dart';
 // helpers
 import '../../helpers/middlewares/auth_middleware.dart';
+// orther
+import '../../models/bars/header_bar.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
+  final int currentPage;
 
-  Header({this.title});
+  Header({required this.currentPage, this.title});
 
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
@@ -28,7 +30,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               builder: (context) => AuthMiddleware(dest: UserPage())));
         },
       ),
-      title: Text(title ?? 'THE LUXURY CLOSET',
+      title: Text(titleList[currentPage],
           style: TextStyle(
               fontFamily: 'Playfair Display',
               fontSize: 20.0,

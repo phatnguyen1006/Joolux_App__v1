@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Widgets
-import '../../Checkout/Address.dart';
+import '../../Checkout/address.dart';
 
 class ButtonClick extends StatelessWidget {
   @override

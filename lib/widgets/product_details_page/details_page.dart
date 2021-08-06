@@ -12,7 +12,7 @@ import 'Others/policy_info_product.dart';
 import '../../models/products/poster.dart';
 import '../../widgets/Home/components/Common/posters.dart';
 import 'Others/similar_recently_products.dart';
-import '../Checkout/Address.dart';
+import '../Checkout/address.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Product product;

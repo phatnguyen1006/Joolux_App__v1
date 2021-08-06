@@ -10,7 +10,6 @@ import '../components/Common/sale_off_grid.dart';
 import '../components/Common/swiper.dart';
 
 // const
-import '../../../constants/constants.dart';
 
 class SaleBody extends StatelessWidget {
   const SaleBody({Key? key}) : super(key: key);

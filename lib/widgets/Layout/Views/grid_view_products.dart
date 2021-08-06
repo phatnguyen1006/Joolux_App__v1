@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 // Components
 import '../../../models/icons/icons.dart';
-import '../../../widgets/WishList/fakeList.dart';
+import '../../../models/WishList/fakeList.dart';
 import '../../../widgets/product_details_page/details_page.dart';
 import '../../../models/products/products.dart';
 import '../../../../constants/constants.dart';
-
 
 class ProductGridView extends StatelessWidget {
   const ProductGridView({Key? key}) : super(key: key);
@@ -130,7 +128,7 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           Container(
-            height: size.width/3  - 20,
+            height: size.width / 3 - 20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -152,7 +150,8 @@ class ItemCard extends StatelessWidget {
                 ),
                 const Text(
                   "\$3.003 EXTRA 33% off",
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                 ),
               ],
             ),

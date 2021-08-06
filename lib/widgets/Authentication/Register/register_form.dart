@@ -15,7 +15,7 @@ class _RegisterFormState extends State<RegisterForm> {
   final _submitButtonFocus = FocusNode();
   final _formKey = GlobalKey<FormState>();
   bool contacted = false;
-  var _formData = IRegister(email: '', password: '', gender: Gender.unknow);
+  var _formData = IRegister(username: '', password: '', gender: Gender.unknow);
 
   void _submitForm() {
     final isValid = _formKey.currentState!.validate();
@@ -56,9 +56,9 @@ class _RegisterFormState extends State<RegisterForm> {
             TextFormField(
               initialValue: '',
               decoration: InputDecoration(
-                // labelText: 'EMAIL',
+                // labelText: 'username',
                 // labelStyle: TextStyle(color: Colors.black),
-                hintText: "Enter Email ID",
+                hintText: "Enter username ID",
                 fillColor: Colors.black,
                 focusColor: Colors.black,
                 focusedBorder: UnderlineInputBorder(
@@ -78,12 +78,12 @@ class _RegisterFormState extends State<RegisterForm> {
                 FocusScope.of(context).requestFocus(_passwordFocus);
               },
               validator: (value) {
-                if (value!.isEmpty) return 'Please provide a email.';
+                if (value!.isEmpty) return 'Please provide a username.';
                 return null; // Correct input
               },
               onSaved: (value) {
                 _formData = IRegister(
-                  email: value ?? '',
+                  username: value ?? '',
                   password: _formData.password,
                   // passwordConfirm: _formData.passwordConfirm,
                   gender: _formData.gender,
@@ -126,7 +126,7 @@ class _RegisterFormState extends State<RegisterForm> {
               },
               onSaved: (value) {
                 _formData = IRegister(
-                  email: _formData.email,
+                  username: _formData.username,
                   password: value ?? '',
                   // passwordConfirm: _formData.passwordConfirm,
                   gender: _formData.gender,

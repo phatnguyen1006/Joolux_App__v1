@@ -1,7 +1,10 @@
+import 'dart:async'; // super lib
 import 'package:flutter/material.dart';
 
 // Interface
 import '../../../models/auth/auth_interface.dart';
+// Api
+import '../../../providers/authentication/auth.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -11,16 +14,19 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
   final _passwordFocus = FocusNode();
   final _submitButtonFocus = FocusNode();
-  final _formKey = GlobalKey<FormState>();
-  var _formData = ILogin(email: '', password: '');
+  var _formData = ILogin(username: '', password: '');
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
     final isValid = _formKey.currentState!.validate();
     if (!isValid) return;
     _formKey.currentState!.save();
-    // print(_formData);
+    await Auth().signIn({
+      'username': _formData.username,
+      'password': _formData.password,
+    });
   }
 
   @override
@@ -55,9 +61,9 @@ class _LoginFormState extends State<LoginForm> {
             TextFormField(
               initialValue: '',
               decoration: InputDecoration(
-                // labelText: 'EMAIL',
+                // labelText: 'USERNAME',
                 // labelStyle: TextStyle(color: Colors.black),
-                hintText: "Enter Email ID",
+                hintText: "Enter UserName",
                 fillColor: Colors.black,
                 focusColor: Colors.black,
                 focusedBorder: UnderlineInputBorder(
@@ -82,7 +88,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               onSaved: (value) {
                 _formData = ILogin(
-                  email: value ?? '',
+                  username: value ?? '',
                   password: _formData.password,
                 );
               },
@@ -123,7 +129,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               onSaved: (value) {
                 _formData = ILogin(
-                  email: _formData.email,
+                  username: _formData.username,
                   password: value ?? '',
                 );
               },
