@@ -15,9 +15,9 @@ class Auth with ChangeNotifier {
   final LocalStorage storage = new LocalStorage('joolux_app');
 
   Auth() {
-    if (_firebaseAuth.currentUser != null) {
-      _isAuth = true;
-    }
+    // if (_firebaseAuth.currentUser != null) {
+    //   _isAuth = true;
+    // }
     _isLoading = false;
   }
   User? get user {
@@ -67,7 +67,6 @@ class Auth with ChangeNotifier {
         );
 
         isLoading = false;
-        isAuth = true;
         await _setStorage(googleAuth.accessToken);
         return userCredential.user;
       }
@@ -116,15 +115,18 @@ class Auth with ChangeNotifier {
     //   username: 'admin',
     //   password: 'admin123',
     // }
+    isLoading = true;
 
     Map<String, dynamic> response = await basicAuth.originalSignIn(data);
     if (response != null) {
       // accessToken && refreshToken
       await _setStorage(response['accessToken'],
           refreshToken: response['refreshToken']);
-      var a = storage.getItem('accessToken');
-      print(a);
+      isAuth = true;
+      isLoading = false;
+      print('Login Successfully!!');
     } else {
+      isLoading = false;
       throw {
         'message': 'Something went wrong!!!',
         'status': 400,
@@ -136,17 +138,20 @@ class Auth with ChangeNotifier {
     // data = {
     //   username: 'admin',
     //   password: 'admin123',
-    //   fullname: I Am admin,
-    //   email: client2@test.com,
-    //   phoneNumber: 0123456727,
+    //   fullname: 'I Am admin',
+    //   email: 'client2@test.com',
+    //   phoneNumber: '0123456727',
     // }
+    isLoading = true;
 
     Map<String, dynamic> response = await basicAuth.originalSignUp(data);
     if (response != null) {
       // accessToken && refreshToken
       await _setStorage(response['accessToken'],
           refreshToken: response['refreshToken']);
+      isLoading = false;
     } else {
+      isLoading = false;
       throw {
         'message': 'Something went wrong!!!',
         'status': 400,
@@ -164,5 +169,6 @@ class Auth with ChangeNotifier {
     await facebookLogin.logOut();
     await _firebaseAuth.signOut();
     await _clearStorage();
+    print('User was Logout!!!');
   }
 }

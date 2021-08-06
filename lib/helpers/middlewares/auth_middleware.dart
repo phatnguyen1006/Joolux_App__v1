@@ -20,7 +20,9 @@ class AuthMiddleware extends StatelessWidget {
           builder: (context, snapshot) {
             final provider = Provider.of<Auth>(context);
 
-            if (provider.isLoading) {
+            if (provider.isAuth) {
+              return dest;
+            } else if (provider.isLoading) {
               return _buildLoading();
             } else if (snapshot.hasData) {
               return dest;

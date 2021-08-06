@@ -57,7 +57,7 @@ Future? originalSignUp(data) async {
     )
         .then((res) {
       if (res.statusCode == 201) {
-        return res;
+        return 201;
       }
     }).catchError((err) {
       if (err.status == 400) {
@@ -67,6 +67,8 @@ Future? originalSignUp(data) async {
         };
       }
     });
+
+    if (res == 201) return await originalSignIn(data);
   } on Exception catch (err) {
     throw HttpException('Failed to login');
   } catch (error) {

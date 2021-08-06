@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 // Interface
 import '../../../models/auth/auth_interface.dart';
+// Api
+import '../../../providers/authentication/auth.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -17,11 +19,33 @@ class _RegisterFormState extends State<RegisterForm> {
   bool contacted = false;
   var _formData = IRegister(username: '', password: '', gender: Gender.unknow);
 
-  void _submitForm() {
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
+      content: Text(value),
+      action: SnackBarAction(
+        label: 'Hide',
+        onPressed: () {
+          // Some code to undo the change.
+        },
+      ),
+    ));
+  }
+
+  Future<void> _submitForm() async {
     final isValid = _formKey.currentState!.validate();
     if (!isValid) return;
+    if (!contacted) {
+      showInSnackBar('Please Agree with the condition!!!');
+      return;
+    }
     _formKey.currentState!.save();
-    print(_formData.gender);
+    await Auth().signUp({
+      'username': _formData.username,
+      'password': _formData.password,
+      'fullname': 'I Am admin',
+      'email': 'client2@test.com',
+      'phoneNumber': '0123456727',
+    });
   }
 
   @override

@@ -4,10 +4,21 @@ import '../../providers/authentication/auth.dart';
 // return when logout
 import '../../app_screen.dart';
 
-class UserPageBody extends StatelessWidget {
+class UserPageBody extends StatefulWidget {
+  @override
+  _UserPageBodyState createState() => _UserPageBodyState();
+}
+
+class _UserPageBodyState extends State<UserPageBody> {
   final user = Auth().user;
+
   Future<void> _signOut() async {
-    await Auth().signOut();
+    await Auth().signOut().then((value) => {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => MyScreen(
+                    currentPage: 0,
+                  )))
+        });
   }
 
   @override

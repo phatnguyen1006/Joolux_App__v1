@@ -1,6 +1,7 @@
 import 'dart:async'; // super lib
 import 'package:flutter/material.dart';
-
+// Redirect
+import '../../../app_screen.dart';
 // Interface
 import '../../../models/auth/auth_interface.dart';
 // Api
@@ -26,7 +27,12 @@ class _LoginFormState extends State<LoginForm> {
     await Auth().signIn({
       'username': _formData.username,
       'password': _formData.password,
-    });
+    }).then((value) => {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => MyScreen(
+                    currentPage: 0,
+                  )))
+        });
   }
 
   @override

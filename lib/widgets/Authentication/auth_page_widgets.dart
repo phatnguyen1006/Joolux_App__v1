@@ -40,6 +40,5 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
         )
       ],
     );
-    ;
   }
 }

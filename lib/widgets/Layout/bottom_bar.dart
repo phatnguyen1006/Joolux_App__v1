@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:localstorage/localstorage.dart';
 // widget
 import '../../app_screen.dart';
 // Auth_Helper_Middleware
@@ -16,6 +17,8 @@ class BottomBar extends StatelessWidget {
   final int currentPage;
   final Function setPage;
   bool isAuth = Auth().isAuth;
+  User? user = Auth().user;
+  final LocalStorage storage = new LocalStorage('joolux_app');
 
   BottomBar({required this.currentPage, required this.setPage});
 
@@ -26,8 +29,7 @@ class BottomBar extends StatelessWidget {
         child: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            final bool isAuth =
-                FirebaseAuth.instance.currentUser != null ? true : false;
+            isAuth = storage.getItem('accessToken') != null ? true : false;
             return BottomAppBar(
                 // shape: CircularNotchedRectangle(),
                 notchMargin: 6.0,
@@ -139,6 +141,7 @@ class BottomBar extends StatelessWidget {
                                       child: InkWell(
                                         onTap: () {
                                           // Checking Middleware before setPage.
+                                          print(isAuth);
                                           if (!isAuth) {
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
