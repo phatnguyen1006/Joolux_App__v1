@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../models/products/products.dart';
 
-import '../cookie_page.dart';
 import '../../../Layout/app_pop_bar.dart';
 import '../../../../constants/constants.dart';
 
@@ -22,7 +21,9 @@ class ImageGrid extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => Scaffold(
                     appBar: appPopBar(context, ""),
-                    body: CookiePage(),
+                    body: Container(
+                      color: Colors.orange,
+                    ),
                   ),
                 )),
             child: Padding(

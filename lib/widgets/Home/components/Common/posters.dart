@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../models/products/poster.dart';
 // widgets
 import '../../../Layout/app_pop_bar.dart';
-import '../cookie_page.dart';
 
 class Posters extends StatelessWidget {
   final List<Poster> poster;
@@ -20,7 +19,9 @@ class Posters extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => Scaffold(
                     appBar: appPopBar(context, ""),
-                    body: CookiePage(),
+                    body: Container(
+                      color: Colors.orange,
+                    ),
                   ),
                 )),
             child: Padding(

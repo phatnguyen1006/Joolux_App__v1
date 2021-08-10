@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 //Widgets
 
-import '../../WishList/Components/list_item_wishlist.dart';
-
 class PriceDetail extends StatefulWidget {
   @override
   _PriceDetailState createState() => new _PriceDetailState();

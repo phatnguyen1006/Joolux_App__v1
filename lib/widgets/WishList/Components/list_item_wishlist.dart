@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../models/icons/icons.dart';
+//Widgets
 import '../../../models/WishList/fakeList.dart';
-import './button_wishlist.dart';
 import '../../../models/products/products.dart';
 import '../../product_details_page/details_page.dart';
-//Widgets
 
 class ListItem extends StatelessWidget {
   final List<FakeList> fakeList;

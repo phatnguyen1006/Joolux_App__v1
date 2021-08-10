@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../models/products/product_types_interface.dart';
 import '../../../widgets/Layout/app_pop_bar.dart';
+import '../../../widgets/Shelve_Items/shelve_items.dart';
 
 class ChooseProductTypes extends StatelessWidget {
   final ProductType productType;
@@ -29,9 +30,11 @@ class ChooseProductTypes extends StatelessWidget {
                 shrinkWrap: true,
                 children: productType.type
                     .map((type) => GestureDetector(
-                          onTap: () {
-                            print("$type");
-                          },
+                          onTap: () =>
+                              Navigator.of(context, rootNavigator: true).push(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ShelveItems(productType: type))),
                           child: Container(
                             alignment: Alignment.centerLeft,
                             height: 40,
