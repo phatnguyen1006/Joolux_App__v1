@@ -7,6 +7,7 @@ import '../../constants/constants.dart';
 AppBar appPopBar(BuildContext context, String title) {
   return AppBar(
     backgroundColor: Colors.white,
+    centerTitle: true,
     elevation: 0,
     title: Center(
       child: Text(

@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:joolux_demo/widgets/Checkout/Address/bottom_continue_btn.dart';
 
 // Components
 import '../../../widgets/Layout/Views/list_view_products.dart';
 import '../../../widgets/Layout/app_pop_bar.dart';
 import '../../../widgets/Layout/Views/grid_view_products.dart';
+import 'Others/ExpandedListAnimationWidget.dart';
+
+List<String> _list = [
+  "Suggested",
+  "Newest",
+  "Oldest",
+  "Lowest Price",
+  "Highest Price",
+  "Lowest Percentage Discount",
+  "Highest Percentage Discount"
+];
 
 class ShelveItems extends StatefulWidget {
   final String productType;
@@ -17,8 +29,10 @@ class ShelveItems extends StatefulWidget {
 
 class _ShelveItemsState extends State<ShelveItems> {
   late bool typeView = true;
+  late bool isShowedSortList = false;
   late SvgPicture iconViewProduct;
   late Text textTitleViewProduct;
+  int chooseSortType = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +60,13 @@ class _ShelveItemsState extends State<ShelveItems> {
       );
     }
 
+    void choosedSortType(index) {
+      setState(() {
+        isShowedSortList = !isShowedSortList;
+        chooseSortType = index;
+      });
+    }
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appPopBar(context, widget.productType),
@@ -64,7 +85,13 @@ class _ShelveItemsState extends State<ShelveItems> {
                     child: Container(
                         color: Color(0xFFCDCDCD),
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                if (isShowedSortList) {
+                                  isShowedSortList = !isShowedSortList;
+                                }
+                              });
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +119,11 @@ class _ShelveItemsState extends State<ShelveItems> {
                     child: Container(
                         color: Color(0xFFCDCDCD),
                         child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                isShowedSortList = !isShowedSortList;
+                              });
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -120,6 +151,9 @@ class _ShelveItemsState extends State<ShelveItems> {
                       child: TextButton(
                           onPressed: () {
                             setState(() {
+                              if (isShowedSortList) {
+                                isShowedSortList = !isShowedSortList;
+                              }
                               typeView = !typeView;
                             });
                           },
@@ -139,8 +173,70 @@ class _ShelveItemsState extends State<ShelveItems> {
             ),
           ),
           Flexible(
-            child: SingleChildScrollView(
-                child: typeView ? ProductGridView() : ProductListView()),
+            child: Stack(children: [
+              SingleChildScrollView(
+                  child: typeView ? ProductGridView() : ProductListView()),
+                  ExpandedSection(
+                    expand: isShowedSortList,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isShowedSortList = !isShowedSortList;
+                        });
+                      },
+                      child: Container(
+                        height: size.height,
+                        width: size.width,
+                        color: Colors.black.withOpacity(0.2),
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: _list.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  color: Colors.white,
+                                  child: Column(
+                                    children: [
+                                      TextButton(
+                                          onPressed: () {
+                                            choosedSortType(index);
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0, right: 8.0),
+                                            child: Row(
+                                              //mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Expanded(
+                                                    child: Text(
+                                                  _list.elementAt(index),
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                )),
+                                                chooseSortType == index
+                                                    ? Icon(Icons.check)
+                                                    : Icon(null),
+                                              ],
+                                            ),
+                                          )),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 8.0, right: 8.0),
+                                        child: Container(
+                                          color: Colors.black,
+                                          height: 0.2,
+                                          width: size.width,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              }),
+                        ),
+                    ),
+                  )
+            ]),
           )
         ],
       ),
