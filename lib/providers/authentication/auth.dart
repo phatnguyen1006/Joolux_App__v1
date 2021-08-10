@@ -152,6 +152,8 @@ class Auth extends ChangeNotifier {
       await _setStorage(response['accessToken'],
           refreshToken: response['refreshToken']);
       isLoading = false;
+      isAuth = true;
+      print('Register & Login Successfully!!');
     } else {
       isLoading = false;
       throw {

@@ -66,11 +66,15 @@ Future? originalSignUp(data) async {
           'status': 400,
         };
       }
+      // handle when user exsisted
     });
 
-    if (res == 201) return await originalSignIn(data);
+    if (res == 201) {
+      // print('resStatus 201');
+      return await originalSignIn(data);
+    }
   } on Exception catch (err) {
-    throw HttpException('Failed to login');
+    throw HttpException('Failed to register');
   } catch (error) {
     print(error);
     throw Error();

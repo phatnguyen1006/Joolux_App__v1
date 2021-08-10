@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// Redirect
+import '../../../app_screen.dart';
 // Interface
 import '../../../models/auth/auth_interface.dart';
 // Api
 import '../../../providers/authentication/auth.dart';
+// Layout Loader Component
+import '../../../widgets/Layout/Loader/loader.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({Key? key}) : super(key: key);
@@ -18,6 +21,8 @@ class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
   bool contacted = false;
   var _formData = IRegister(username: '', password: '', gender: Gender.unknow);
+  // handle when call api
+  final Function loader = Loader().changeLoading;
 
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
@@ -39,13 +44,23 @@ class _RegisterFormState extends State<RegisterForm> {
       return;
     }
     _formKey.currentState!.save();
+    loader(context, true);
     await Auth().signUp({
       'username': _formData.username,
       'password': _formData.password,
       'fullname': 'I Am admin',
       'email': 'client2@test.com',
       'phoneNumber': '0123456727',
+    }).then((value) {
+      loader(context, false);
+      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //     builder: (context) => MyScreen(
+      //           currentPage: 0,
+      //         )));
+    }).catchError((err) {
+      print('register failed');
     });
+    loader(context, false);
   }
 
   @override
@@ -282,13 +297,4 @@ class _RegisterFormState extends State<RegisterForm> {
       ),
     );
   }
-
-  Widget _buildLoading() => Stack(
-        alignment: AlignmentDirectional.center,
-        fit: StackFit.loose,
-        children: [
-          RegisterForm(),
-          Center(child: CircularProgressIndicator()),
-        ],
-      );
 }

@@ -19,6 +19,7 @@ class AuthMiddleware extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             final provider = Provider.of<Auth>(context);
+            // print(provider.isAuth);
             if (provider.isAuth) {
               return dest;
             } else if (provider.isLoading) {

@@ -141,7 +141,7 @@ class BottomBar extends StatelessWidget {
                                       child: InkWell(
                                         onTap: () {
                                           // Checking Middleware before setPage.
-                                          print(isAuth);
+                                          // print(isAuth);
                                           if (!isAuth) {
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
