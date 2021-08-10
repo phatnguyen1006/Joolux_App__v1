@@ -6,9 +6,9 @@ import 'package:localstorage/localstorage.dart';
 // callback
 import './_basicAuth.dart' as basicAuth;
 
-class Auth with ChangeNotifier {
+class Auth extends ChangeNotifier {
   static bool _isAuth = false;
-  late bool _isLoading;
+  late bool _isLoading = false;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final User? _user = FirebaseAuth.instance.currentUser;
   // init localStorage
@@ -18,7 +18,7 @@ class Auth with ChangeNotifier {
     // if (_firebaseAuth.currentUser != null) {
     //   _isAuth = true;
     // }
-    _isLoading = false;
+    // _isLoading = false;
   }
   User? get user {
     return _user;
@@ -54,20 +54,22 @@ class Auth with ChangeNotifier {
   }
 
   Future signInGoogle() async {
-    isLoading = true;
-
     final googleSignIn = GoogleSignIn();
     final googleUser = await googleSignIn.signIn();
     if (googleUser != null) {
       final googleAuth = await googleUser.authentication;
       if (googleAuth.idToken != null) {
-        final userCredential = await _firebaseAuth.signInWithCredential(
+        final userCredential = await _firebaseAuth
+            .signInWithCredential(
           GoogleAuthProvider.credential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken),
-        );
+        )
+            .then((value) {
+          return value;
+        });
 
-        isLoading = false;
-        await _setStorage(googleAuth.accessToken);
+        await _setStorage(googleAuth.accessToken).then((value) {});
+
         return userCredential.user;
       }
     } else {

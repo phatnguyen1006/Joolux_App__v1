@@ -50,7 +50,7 @@ class _MyScreenState extends State<MyScreen> {
         ),
         // Notifier
         ChangeNotifierProvider(
-          create: (_) => Auth(),
+          create: (context) => Auth(),
         ),
         // ChangeNotifierProxyProvider(),
       ],

@@ -13,12 +13,7 @@ class _UserPageBodyState extends State<UserPageBody> {
   final user = Auth().user;
 
   Future<void> _signOut() async {
-    await Auth().signOut().then((value) => {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => MyScreen(
-                    currentPage: 0,
-                  )))
-        });
+    await Auth().signOut();
   }
 
   @override
@@ -264,7 +259,13 @@ class _UserPageBodyState extends State<UserPageBody> {
             width: MediaQuery.of(context).size.width,
             height: 45,
             child: ElevatedButton(
-              onPressed: _signOut,
+              onPressed: () {
+                _signOut();
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => MyScreen(
+                          currentPage: 0,
+                        )));
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
                 elevation: MaterialStateProperty.all<double>(12.0),

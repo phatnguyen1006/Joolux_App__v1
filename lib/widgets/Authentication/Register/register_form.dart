@@ -282,4 +282,13 @@ class _RegisterFormState extends State<RegisterForm> {
       ),
     );
   }
+
+  Widget _buildLoading() => Stack(
+        alignment: AlignmentDirectional.center,
+        fit: StackFit.loose,
+        children: [
+          RegisterForm(),
+          Center(child: CircularProgressIndicator()),
+        ],
+      );
 }
