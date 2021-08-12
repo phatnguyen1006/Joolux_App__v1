@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../models/icons/icons.dart';
 //Widgets
 
-class EmptyWishList extends StatefulWidget {
-  @override
-  _EmptyWishListState createState() => _EmptyWishListState();
-}
-
-class _EmptyWishListState extends State<EmptyWishList> {
+class EmptyWishList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(

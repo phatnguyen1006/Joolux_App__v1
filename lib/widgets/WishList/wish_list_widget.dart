@@ -3,9 +3,9 @@ import "package:flutter/material.dart";
 
 // widgets
 import '../../models/WishList/fakeList.dart';
-import './Components/empty_wishlist.dart';
-import './Components/list_item_wishlist.dart';
-import './Components/button_wishlist.dart';
+import './components/empty_wishlist.dart';
+import './components/list_item_wishlist.dart';
+import './components/button_wishlist.dart';
 // import '../../models/products/products.dart';
 // import '../product_details_page/details_page.dart';
 
@@ -22,7 +22,7 @@ class _WishListWidgetsState extends State<WishListWidgets> {
     super.initState();
     // _favoriteList();
     setState(() {
-      fakeList = wishList_fake;
+      fakeList = wishListfake;
     });
   }
 
@@ -51,9 +51,12 @@ class _WishListWidgetsState extends State<WishListWidgets> {
                       children: [
                         Expanded(
                           flex: 7,
-                          child: ListItem(fakeList: fakeList, index: i),
+                          child: ListItemWishlist(fakeList: fakeList, index: i),
                         ),
-                        ButtonClick(),
+                        ButtonClick(
+                          fakeList: fakeList,
+                          index: i,
+                        ),
                       ],
                     ),
                     Positioned(
