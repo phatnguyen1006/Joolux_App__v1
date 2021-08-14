@@ -71,7 +71,6 @@ class _AnimateExpandedState extends State<AnimateExpanded> {
         header: "Verified Authenticity", body: "body", isExpanded: false),
     ProductInfo(header: "Warranty & Return", body: "body", isExpanded: false),
   ];
-  double _bodyHeight = 0.0;
 
   @override
   Widget build(BuildContext context) {

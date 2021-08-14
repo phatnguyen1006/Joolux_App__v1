@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 
 //Widgets
 import '../../Checkout/address.dart';
+//models
+import '../../../models/WishList/fakeList.dart';
 
 class ButtonClick extends StatelessWidget {
+  final List<FakeList> fakeList;
+  final int index;
+  const ButtonClick({Key? key, required this.fakeList, required this.index})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -72,7 +78,10 @@ class ButtonClick extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  print('Add to shopping cart');
+                  fakeCart.add(
+                    fakeList[index],
+                  );
+                  fakeList.removeAt(index);
                 },
               ),
             )

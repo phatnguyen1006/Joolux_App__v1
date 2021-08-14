@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:joolux_demo/widgets/Checkout/Address/bottom_continue_btn.dart';
 
 // Components
 import '../../../widgets/Layout/Views/list_view_products.dart';
 import '../../../widgets/Layout/app_pop_bar.dart';
 import '../../../widgets/Layout/Views/grid_view_products.dart';
-import 'Others/ExpandedListAnimationWidget.dart';
+import 'Others/expanded_list_animation_widget.dart';
+import 'Others/filter_screen.dart';
 
 List<String> _list = [
   "Suggested",
@@ -32,6 +32,7 @@ class _ShelveItemsState extends State<ShelveItems> {
   late bool isShowedSortList = false;
   late SvgPicture iconViewProduct;
   late Text textTitleViewProduct;
+  List<String> filterByBrandList = [];
   int chooseSortType = 1;
 
   @override
@@ -60,7 +61,7 @@ class _ShelveItemsState extends State<ShelveItems> {
       );
     }
 
-    void choosedSortType(index) {
+    void choseSortType(index) {
       setState(() {
         isShowedSortList = !isShowedSortList;
         chooseSortType = index;
@@ -86,6 +87,10 @@ class _ShelveItemsState extends State<ShelveItems> {
                         color: Color(0xFFCDCDCD),
                         child: TextButton(
                             onPressed: () {
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => Filter(),
+                                  ));
                               setState(() {
                                 if (isShowedSortList) {
                                   isShowedSortList = !isShowedSortList;
@@ -117,7 +122,7 @@ class _ShelveItemsState extends State<ShelveItems> {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 1),
                     child: Container(
-                        color: Color(0xFFCDCDCD),
+                        color: isShowedSortList ? Colors.black : Color(0xFFCDCDCD),
                         child: TextButton(
                             onPressed: () {
                               setState(() {
@@ -132,14 +137,14 @@ class _ShelveItemsState extends State<ShelveItems> {
                                   padding: const EdgeInsets.only(right: 4.0),
                                   child: SvgPicture.asset(
                                     "assets/icons/sort-arrow-vertical.svg",
-                                    color: Colors.black,
+                                    color: isShowedSortList ? Colors.white : Colors.black,
                                     height: 15,
                                     width: 15,
                                   ),
                                 ),
                                 Text(
                                   "Sort",
-                                  style: TextStyle(color: Colors.black),
+                                  style: TextStyle(color: isShowedSortList ? Colors.white : Colors.black),
                                 ),
                               ],
                             ))),
@@ -198,7 +203,7 @@ class _ShelveItemsState extends State<ShelveItems> {
                                     children: [
                                       TextButton(
                                           onPressed: () {
-                                            choosedSortType(index);
+                                            choseSortType(index);
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -225,7 +230,7 @@ class _ShelveItemsState extends State<ShelveItems> {
                                             left: 8.0, right: 8.0),
                                         child: Container(
                                           color: Colors.black,
-                                          height: 0.2,
+                                          height: 0.3,
                                           width: size.width,
                                         ),
                                       )

@@ -4,10 +4,11 @@ import '../../../models/WishList/fakeList.dart';
 import '../../../models/products/products.dart';
 import '../../product_details_page/details_page.dart';
 
-class ListItem extends StatelessWidget {
+class ListItemWishlist extends StatelessWidget {
   final List<FakeList> fakeList;
   final int index;
-  const ListItem({Key? key, required this.fakeList, required this.index})
+  const ListItemWishlist(
+      {Key? key, required this.fakeList, required this.index})
       : super(key: key);
 
   @override

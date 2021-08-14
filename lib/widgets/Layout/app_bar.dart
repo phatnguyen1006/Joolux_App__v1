@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 // widgets
 import '../../UI/User/user_page.dart';
 import '../../../widgets/Layout/search_page_app_bar.dart';
+import '../../widgets/Carts/carts.dart';
+import '../Layout/icon_button_with_counter.dart';
 // helpers
 import '../../helpers/middlewares/auth_middleware.dart';
 // orther
 import '../../models/bars/header_bar.dart';
+//models
+import '../../models/WishList/fakeList.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -36,17 +40,37 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
               fontSize: 20.0,
               color: Colors.black)),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.search, color: Color(0xFF545D68)),
-          onPressed: () {
+        IconBtnWithCounter(
+          icon: Icon(Icons.search, color: Colors.black),
+          press: () {
             showSearch(context: context, delegate: SearchPage());
           },
         ),
-        IconButton(
-          icon: Icon(Icons.shopping_cart_outlined, color: Color(0xFF545D68)),
-          onPressed: () {},
+        IconBtnWithCounter(
+          icon: Icon(Icons.shopping_cart_outlined, color: Colors.black),
+          press: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartsWidgets()),
+          ),
+          numOfitem: fakeCart.length,
         ),
       ],
     );
   }
 }
+
+
+
+// IconButton(
+//           icon: Icon(Icons.search, color: Color(0xFF545D68)),
+//           onPressed: () {
+//             showSearch(context: context, delegate: SearchPage());
+//           },
+//         ),
+//         IconButton(
+//           icon: Icon(Icons.shopping_cart_outlined, color: Color(0xFF545D68)),
+//           onPressed: () => Navigator.push(
+//             context,
+//             MaterialPageRoute(builder: (context) => CartsWidgets()),
+//           ),
+//         ),
