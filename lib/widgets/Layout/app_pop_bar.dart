@@ -8,7 +8,7 @@ AppBar appPopBar(BuildContext context, String title) {
   return AppBar(
     backgroundColor: Colors.white,
     centerTitle: true,
-    elevation: 0,
+    elevation: 2,
     title: Center(
       child: Text(
         title,
@@ -35,9 +35,9 @@ AppBar appPopBar(BuildContext context, String title) {
             SvgPicture.asset("assets/icons/cart.svg", color: Color(0xFF545D68)),
         onPressed: () {},
       ),
-      const SizedBox(
-        width: DefaultPadding / 2,
-      )
+      // const SizedBox(
+      //   width: DefaultPadding / 2,
+      // )
     ],
   );
 }
