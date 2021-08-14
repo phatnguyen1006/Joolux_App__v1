@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //Widgets
 import '../../../models/WishList/fakeList.dart';
-import '../../WishList/Components/list_item_wishlist.dart';
+import '../../WishList/components/list_item_wishlist.dart';
 
 class OrderSummary extends StatefulWidget {
   @override
@@ -106,12 +106,12 @@ class _OrderSummaryState extends State<OrderSummary> {
                           child: ListView.builder(
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: wishList_fake.length,
+                            itemCount: wishListfake.length,
                             itemBuilder: (context, i) {
                               return Padding(
                                 padding: EdgeInsets.all(0),
-                                child:
-                                    ListItem(fakeList: wishList_fake, index: i),
+                                child: ListItemWishlist(
+                                    fakeList: wishListfake, index: i),
                               );
                             },
                           ),

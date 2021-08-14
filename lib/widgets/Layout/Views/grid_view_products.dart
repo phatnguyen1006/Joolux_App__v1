@@ -101,12 +101,15 @@ class ItemCard extends StatelessWidget {
                               icon: Icon(MyIcon.heart),
                               color: Color(0xFF676E79),
                               onPressed: () {
-                                wishList_fake.add(FakeList(
+                                wishListfake.add(FakeList(
                                   title:
                                       "Chanel Green Quilted Patent\nLeather Jumbo Classic Double Flag Bag",
-                                  image: "assets/images/bag_3.png",
-                                  condition: "Like New",
+                                  image: "assets/images/bag_2.png",
+                                  condition: "Gently Used",
                                   price: 1234,
+                                  name: "Fendi",
+                                  size: "40",
+                                  type: "Returnable item",
                                 ));
                               },
                             ),
